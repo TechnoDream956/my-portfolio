@@ -39,10 +39,6 @@
 
   <!-- Navigation -->
   <header id="header">
-    <div class="system-status">
-      <div class="status-item"><span class="status-label">LATENCY:</span> <span id="ping-val">24</span>ms</div>
-      <div class="status-item"><span class="status-label">SYS:</span> <span class="status-online">READY</span></div>
-    </div>
     <nav>
       <a href="#" class="nav-name">Arpit<span class="dot">.</span></a>
       <div class="nav-menu">
@@ -53,11 +49,7 @@
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-btns">
-        <div class="nav-socials">
-          <a href="#" title="LinkedIn">IN</a>
-          <a href="#" title="Twitter">TW</a>
-        </div>
-        <a href="javascript:void(0)" class="pill-btn ghost nav-resume" onclick="openResume()">Resume</a>
+        <a href="/resume.html" class="pill-btn ghost nav-resume">Resume</a>
       </div>
     </nav>
   </header>
@@ -106,15 +98,10 @@
               <div class="t-line"><span class="t-prompt">$</span> <span class="t-cursor">_</span></div>
             </div>
           </div>
-          <div class="hero-chibi-floating">
-            <img src="/chibi_arpit.png" alt="Arpit Chibi" class="chibi-img">
-            <div class="chibi-glow"></div>
+          <div class="hero-photo-v4">
+            <img src="/arpit.jpg" alt="Arpit Sehrawat">
+            <div class="photo-overlay"></div>
           </div>
-          
-          <!-- Floating Tech Icons -->
-          <div class="floating-icon f-icon-1"><i class="fab fa-aws"></i></div>
-          <div class="floating-icon f-icon-2"><i class="fab fa-python"></i></div>
-          <div class="floating-icon f-icon-3"><i class="fas fa-cloud"></i></div>
         </div>
       </div>
       <div class="scroll-indicator">
@@ -178,13 +165,13 @@
               I am a <strong>Cloud Computing enthusiast</strong> and Developer currently pursuing my B.Tech at <strong>Bennett University</strong>. 
               My journey is fueled by a passion for building scalable, high-performance systems and exploring the intersection of AI and Infrastructure.
             </p>
-            <div class="uni-badge-container">
-              <div class="uni-logo-wrapper">
-                <img src="https://www.bennett.edu.in/wp-content/uploads/2021/12/logo.png" alt="Bennett University Logo" class="uni-logo">
+            <div class="uni-badge-v2">
+              <div class="uni-badge-inner">
+                <span class="uni-text">BENNETT</span>
+                <span class="uni-sub">UNIVERSITY</span>
               </div>
               <div class="uni-info">
-                <span class="uni-name">Bennett University</span>
-                <span class="uni-sub">Times Group Initiative</span>
+                <span class="uni-tag">Times Group Initiative</span>
               </div>
             </div>
             <p>
@@ -457,139 +444,17 @@
         <a href="mailto:arpitsehrawat2030@gmail.com" class="contact-btn">
           arpitsehrawat2030@gmail.com
         </a>
-        <div class="social-row">
-          <a href="https://github.com/TechnoDream956" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/arpit-sehrawat-bb6a09323" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="mailto:arpitsehrawat2030@gmail.com">Email</a>
-        </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="premium-footer">
+  <footer>
     <div class="footer-inner">
-      <div class="footer-left">
-        <p>© 2024 Arpit Sehrawat. Built with passion.</p>
-      </div>
-      <div class="footer-right">
-        <span>Bennett University · B.Tech CSE</span>
-      </div>
+      <p>&copy; 2024 Arpit Sehrawat. Built with passion & Cloud focus.</p>
     </div>
   </footer>
 
-  <!-- RESUME MODAL REDESIGN -->
-  <div id="resume-modal" class="modal">
-    <div class="modal-backdrop" onclick="closeResume()"></div>
-    <div class="modal-content">
-      <div class="modal-header-sticky">
-        <h3>PROFESSIONAL RESUME</h3>
-        <div class="modal-header-btns">
-            <button class="pill-btn" onclick="window.print()">Download PDF</button>
-            <button class="modal-close-inline" onclick="closeResume()">×</button>
-        </div>
-      </div>
-      <div class="resume-wrapper">
-        <div class="resume-side">
-          <div class="res-profile">
-            <img src="/arpit.jpg" alt="Arpit" class="res-img">
-            <h2>Arpit Sehrawat</h2>
-            <p>Developer & Cloud Student</p>
-          </div>
-          
-          <div class="res-contact-side">
-            <div class="res-c-item">📧 arpitsehrawat2030@gmail.com</div>
-            <div class="res-c-item">📍 Greater Noida, UP</div>
-            <div class="res-c-item">🔗 github.com/TechnoDream956</div>
-          </div>
-
-          <div class="res-skills-side">
-            <h4>TECHNICAL</h4>
-            <div class="res-skill-tags">
-              <span>Python</span> <span>Java</span> <span>C++</span>
-              <span>JavaScript</span> <span>AWS</span> <span>Docker</span>
-              <span>SQL</span> <span>Linux</span> <span>Git</span>
-            </div>
-            
-            <h4 style="margin-top: 2rem;">TOOLS & PRODUCTIVITY</h4>
-            <div class="res-skill-tags">
-              <span>MS Excel</span> <span>MS Word</span> <span>PowerPoint</span>
-              <span>Medium</span> <span>Postman</span> <span>VS Code</span>
-            </div>
-
-            <h4 style="margin-top: 2rem;">SOFT SKILLS</h4>
-            <div class="res-skill-tags">
-              <span>Leadership</span> <span>Public Speaking</span>
-              <span>Team Collaboration</span> <span>Problem Solving</span>
-            </div>
-
-            <h4 style="margin-top: 2rem;">LANGUAGES</h4>
-            <div class="res-skill-tags">
-              <span>English (Proficient)</span>
-              <span>Hindi (Native)</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="resume-main">
-          <div class="res-main-header">
-            <h3>PROFESSIONAL PROFILE</h3>
-            <p>High-achieving Computer Science student specializing in Cloud Computing. Passionate about architecting scalable systems and leveraging AI for real-world impact. Demonstrated ability to lead technical projects from conception to deployment, focusing on efficiency and user-centric design.</p>
-          </div>
-
-          <div class="res-main-section">
-            <h3>EDUCATION</h3>
-            <div class="res-entry">
-              <div class="res-entry-head">
-                <strong>Bennett University</strong>
-                <span>2024 — 2028</span>
-              </div>
-              <p>Bachelor of Technology in Computer Science & Engineering</p>
-              <p>Specialization: Cloud Computing | Current CGPA: ~8.0/10</p>
-              <small>Key Modules: Data Structures (DSA), Cloud Infrastructure, Database Systems, Operating Systems.</small>
-            </div>
-          </div>
-
-          <div class="res-main-section">
-            <h3>EXPERIENCE & IMPACT</h3>
-            <div class="res-entry">
-              <div class="res-entry-head"><strong>Founder & Lead Developer</strong></div>
-              <p>Smart Canteen Infrastructure Project</p>
-              <p>Identified campus-wide ordering inefficiencies and built a WebSocket-based real-time platform. Managed full-cycle deployment and user testing with 1000+ students.</p>
-            </div>
-            <div class="res-entry">
-              <div class="res-entry-head"><strong>AI Health Researcher</strong></div>
-              <p>Vital Arogya Guardian</p>
-              <p>Engineered a predictive symptom-analysis tool using Flask. Integrated multiple data sources to provide high-accuracy health risk assessments.</p>
-            </div>
-          </div>
-
-          <div class="res-main-section">
-            <h3>ACHIEVEMENTS</h3>
-            <ul class="res-certs">
-              <li><strong>AWS Cloud Architecting</strong> — Professional Training Completion</li>
-              <li><strong>Data Engineering Specialist</strong> — AWS Academy</li>
-              <li><strong>Python Development Professional</strong> — Infosys Springboard</li>
-              <li><strong>Technical Content Creator</strong> — Active on Medium/Tech Blogs</li>
-              <li><strong>Hackathon Finalist</strong> — Innovation in Campus Solutions</li>
-            </ul>
-          </div>
-
-          <div class="res-main-section">
-            <h3>EXTRACURRICULAR</h3>
-            <div class="res-entry">
-              <p>Active member of the University Tech Club, participating in weekly coding contests and mentoring junior students in Cloud fundamentals.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script type="module" src="/main.js"></script>
-  <script>
-    function openResume() {
-      document.getElementById('resume-modal').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
     function closeResume() {
