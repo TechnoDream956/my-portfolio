@@ -1399,23 +1399,30 @@ section {
   .skills-wrap { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-  .hero-ultra-wide { gap: 3rem; padding-top: 80px; }
-  .photo-frame-v9 { width: 250px; height: 250px; margin-left: 0; }
+  /* ── Hero Section Overrides ── */
+  .hero-ultra-wide { 
+    flex-direction: column; 
+    gap: 3rem; 
+    padding-top: 60px; 
+    text-align: center; 
+  }
+  .photo-frame-v9 { width: 200px; height: 200px; margin: 0 auto; }
   .hero-center-v9 { min-width: 100%; }
-  .hero-title-v9 { font-size: 3rem; min-height: 2.5em; }
-  .terminal-wrapper { width: 100%; max-width: 350px; height: 280px; }
-  .orbit-wrap-v9 { transform: scale(0.6); } /* Perfectly scales down the 3D swarm for phones */
-  .quick-stats { flex-direction: column; gap: 1.5rem; text-align: center; }
+  .hero-title-v9 { font-size: 2.5rem; min-height: 2.5em; width: 100%; }
+  .terminal-wrapper { width: 100%; max-width: 320px; height: 250px; margin: 0 auto; }
+  
+  /* Kill the 3D swarm on mobile to save GPU performance and fix extreme lag */
+  .orbit-wrap-v9 { display: none !important; }
+  
+  .quick-stats { flex-direction: column; gap: 1rem; text-align: center; }
 
   #hero {
-    grid-template-columns: 1fr; gap: 3rem;
-    padding-top: 120px; min-height: auto;
+    padding-top: 100px; min-height: auto;
   }
   .hero-left { padding-top: 0; text-align: center; }
   .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-links { justify-content: center; }
   .hero-right { order: -1; }
-  .photo-wrapper { width: 240px; height: 280px; }
   .nav-menu { display: none; }
   .skills-wrap { grid-template-columns: 1fr 1fr; gap: 1rem; }
   .project-card { padding: 1.5rem; }
