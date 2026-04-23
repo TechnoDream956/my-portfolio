@@ -509,7 +509,7 @@ h1 {
   width: 90%; max-width: 1750px; gap: 6rem;
 }
 
-.hero-photo-v9 { flex: 0.8; display: flex; justify-content: center; }
+.hero-photo-v9 { flex: 0.8; display: flex; justify-content: center; margin-left: 5vw; }
 .photo-frame-v9 {
   width: 400px; height: 400px;
   border-radius: 16px; border: 1px solid var(--glass-border);
