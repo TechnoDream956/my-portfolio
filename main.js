@@ -1,32 +1,68 @@
-// Integrated cursor/parallax logic at end
+// ── Scroll Progress Bar ──
+window.addEventListener('scroll', () => {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  const progressBar = document.getElementById('scroll-progress');
+  if (progressBar) progressBar.style.width = scrolled + '%';
+});
 
+// ── Ping Simulator ──
+const pingVal = document.getElementById('ping-val');
+if (pingVal) {
+  setInterval(() => {
+    const p = Math.floor(Math.random() * (35 - 18 + 1)) + 18;
+    pingVal.textContent = p;
+  }, 3000);
+}
+
+// ── Particles.js Initialization ──
+if (window.particlesJS) {
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 60, density: { enable: true, value_area: 800 } },
+      color: { value: "#7c6aff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.2, random: true },
+      size: { value: 2, random: true },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#7c6aff",
+        opacity: 0.1,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 1.5,
+        direction: "none",
+        random: true,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+      }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "grab" },
+        onclick: { enable: true, mode: "push" },
+        resize: true
+      },
+      modes: {
+        grab: { distance: 200, line_linked: { opacity: 0.3 } },
+        push: { particles_nb: 4 }
+      }
+    },
+    retina_detect: true
+  });
+}
 
 // ── Navbar Scroll Effect ──
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 50);
 });
-
-// ── Typewriter Effect ──
-const typewriterEl = document.querySelector('.name-highlight');
-if (typewriterEl) {
-  const text = typewriterEl.textContent;
-  typewriterEl.textContent = '';
-  typewriterEl.classList.add('typewriter-text');
-  let i = 0;
-  setTimeout(() => {
-    const typeInterval = setInterval(() => {
-      typewriterEl.textContent += text[i];
-      i++;
-      if (i >= text.length) {
-        clearInterval(typeInterval);
-        setTimeout(() => {
-          typewriterEl.classList.remove('typewriter-text');
-        }, 1500);
-      }
-    }, 120);
-  }, 800);
-}
 
 // ── Staggered Scroll Reveal ──
 const revealGroups = [
@@ -42,7 +78,6 @@ revealGroups.forEach(({ selector }) => {
   const els = document.querySelectorAll(selector);
   els.forEach((el, i) => {
     el.classList.add('reveal');
-    // Stagger children of the same type
     if (els.length > 1) {
       el.style.transitionDelay = `${i * 0.1}s`;
     }
@@ -90,47 +125,6 @@ window.addEventListener('scroll', () => {
     }
   });
 });
-// ── Particles.js Initialization ──
-if (window.particlesJS) {
-  particlesJS('particles-js', {
-    particles: {
-      number: { value: 60, density: { enable: true, value_area: 800 } },
-      color: { value: "#7c6aff" },
-      shape: { type: "circle" },
-      opacity: { value: 0.2, random: true },
-      size: { value: 2, random: true },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#7c6aff",
-        opacity: 0.1,
-        width: 1
-      },
-      move: {
-        enable: true,
-        speed: 1.5,
-        direction: "none",
-        random: true,
-        straight: false,
-        out_mode: "out",
-        bounce: false,
-      }
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: { enable: true, mode: "grab" },
-        onclick: { enable: true, mode: "push" },
-        resize: true
-      },
-      modes: {
-        grab: { distance: 200, line_linked: { opacity: 0.3 } },
-        push: { particles_nb: 4 }
-      }
-    },
-    retina_detect: true
-  });
-}
 
 // ── Parallax & Interactive Effects ──
 document.addEventListener('mousemove', (e) => {
@@ -139,7 +133,7 @@ document.addEventListener('mousemove', (e) => {
 
   // Move blobs subtly for parallax
   document.querySelectorAll('.blob').forEach((blob, index) => {
-    const depth = (index + 1) * 30; // Increased depth
+    const depth = (index + 1) * 30;
     const moveX = (x - 0.5) * depth;
     const moveY = (y - 0.5) * depth;
     blob.style.transform = `translate(${moveX}px, ${moveY}px)`;
@@ -152,4 +146,5 @@ document.addEventListener('mousemove', (e) => {
     glowEl.style.top = e.clientY + 'px';
   }
 });
+
 
