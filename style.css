@@ -1399,6 +1399,9 @@ section {
   .skills-wrap { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
+  /* ── Mobile Header Fix ── */
+  #header { background: rgba(10, 10, 20, 0.98); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+
   /* ── Hero Section Overrides ── */
   .hero-ultra-wide { 
     flex-direction: column; 
@@ -1408,7 +1411,7 @@ section {
   }
   .photo-frame-v9 { width: 200px; height: 200px; margin: 0 auto; }
   .hero-center-v9 { min-width: 100%; }
-  .hero-title-v9 { font-size: 2.5rem; min-height: 2.5em; width: 100%; }
+  .hero-title-v9 { font-size: clamp(2rem, 10vw, 2.5rem); min-height: 2.5em; width: 100%; }
   .terminal-wrapper { width: 100%; max-width: 320px; height: 250px; margin: 0 auto; }
   
   /* Kill the 3D swarm on mobile to save GPU performance and fix extreme lag */
@@ -1420,8 +1423,9 @@ section {
     padding-top: 100px; min-height: auto;
   }
   .hero-left { padding-top: 0; text-align: center; }
-  .hero-sub { margin-left: auto; margin-right: auto; }
-  .hero-links { justify-content: center; }
+  .hero-sub { margin-left: auto; margin-right: auto; max-width: 90%; }
+  .hero-links { flex-direction: column; width: 100%; gap: 1rem; }
+  .hero-links .pill-btn { width: 100%; justify-content: center; }
   .hero-right { order: -1; }
   .nav-menu { display: none; }
   .skills-wrap { grid-template-columns: 1fr 1fr; gap: 1rem; }
