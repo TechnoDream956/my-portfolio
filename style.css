@@ -1399,10 +1399,19 @@ section {
   .skills-wrap { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-  /* ── Extreme Mobile Performance Optimizations ── */
-  .bg-blobs, #particles-js, .tech-overlays { display: none !important; } /* Kills GPU-heavy blurs, canvas, and noise */
-  .terminal-window, .photo-frame-v9 { animation: none !important; transform: none !important; } /* Stops layout-thrashing float animations */
-  * { box-shadow: none !important; } /* Removes expensive soft shadows on weak GPUs */
+  /* ── Smart Mobile Performance Optimizations ── */
+  #particles-js, .tech-overlays { display: none !important; } /* Canvas and noise are off */
+  .terminal-window, .photo-frame-v9 { animation: none !important; transform: none !important; } /* Static to avoid repaint thrashing */
+  
+  /* Restore the Swarm, but remove expensive glowing shadows from the moving particles */
+  .orbit-wrap-v9 { transform: scale(0.6); margin-top: 20px; }
+  .tech-icon { box-shadow: none !important; border: 1px solid rgba(255,255,255,0.2) !important; background: rgba(20,20,30,0.5) !important; }
+
+  /* Restore background blobs using zero-cost radial gradients instead of GPU-killing blur() */
+  .bg-blobs { filter: none !important; opacity: 0.8 !important; }
+  .blob-1 { background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 60%) !important; }
+  .blob-2 { background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 60%) !important; }
+  .blob-3, .blob-4, .blob-5 { display: none !important; } /* Only need 2 on a tiny screen */
 
   /* ── Mobile Header Fix ── */
   #header { background: rgba(10, 10, 20, 0.98); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
@@ -1414,13 +1423,10 @@ section {
     padding-top: 60px; 
     text-align: center; 
   }
-  .photo-frame-v9 { width: 200px; height: 200px; margin: 0 auto; border: 2px solid var(--accent); }
+  .photo-frame-v9 { width: 200px; height: 200px; margin: 0 auto; border: 1px solid var(--glass-border); }
   .hero-center-v9 { min-width: 100%; }
   .hero-title-v9 { font-size: clamp(2rem, 10vw, 2.5rem); min-height: 2.5em; width: 100%; }
   .terminal-wrapper { width: 100%; max-width: 320px; height: 250px; margin: 0 auto; }
-  
-  /* Kill the 3D swarm on mobile to save GPU performance and fix extreme lag */
-  .orbit-wrap-v9 { display: none !important; }
   
   .quick-stats { flex-direction: column; gap: 1rem; text-align: center; }
 
