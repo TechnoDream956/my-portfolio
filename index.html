@@ -37,19 +37,24 @@
   <!-- Cursor glow effect -->
   <div id="cursor-glow"></div>
 
-  <!-- Navigation -->
   <header id="header">
-    <nav>
-      <a href="#" class="nav-name">Arpit<span class="dot">.</span></a>
-      <div class="nav-menu">
+    <nav class="nav-minimal">
+      <div class="nav-left">
+        <a href="#" class="nav-name">Arpit Sehrawat</a>
+      </div>
+      <div class="nav-center">
         <a href="#about">About</a>
         <a href="#work">Work</a>
         <a href="#certificates">Certificates</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
-      <div class="nav-btns">
-        <a href="/resume.html" class="pill-btn ghost nav-resume">Resume</a>
+      <div class="nav-right">
+        <div class="nav-social-icons">
+          <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <a href="resume.html" class="resume-pill">Resume</a>
       </div>
     </nav>
   </header>
@@ -77,30 +82,46 @@
         </div>
       </div>
       <div class="hero-right">
-        <div class="hero-visual-stack">
-          <div class="terminal-window">
-            <div class="terminal-header">
-              <span class="t-dot red"></span>
-              <span class="t-dot yellow"></span>
-              <span class="t-dot green"></span>
-              <span class="t-title">arpit@cloud:~</span>
+        <div class="hero-layout-v5">
+          <div class="terminal-container">
+            <div class="terminal-window">
+              <div class="terminal-header">
+                <span class="t-dot red"></span>
+                <span class="t-dot yellow"></span>
+                <span class="t-dot green"></span>
+                <span class="t-title">arpit@cloud:~</span>
+              </div>
+              <div class="terminal-body">
+                <div class="t-line"><span class="t-prompt">$</span> cat about_me.json</div>
+                <div class="t-out">{</div>
+                <div class="t-out">&nbsp;&nbsp;"name": "Arpit Sehrawat",</div>
+                <div class="t-out">&nbsp;&nbsp;"role": "Full-Stack Developer",</div>
+                <div class="t-out">&nbsp;&nbsp;"focus": "Cloud Architecture",</div>
+                <div class="t-out">&nbsp;&nbsp;"location": "Greater Noida, IN"</div>
+                <div class="t-out">}</div>
+                <div class="t-line"><span class="t-prompt">$</span> ls skills/</div>
+                <div class="t-out">AWS/ &nbsp; Docker/ &nbsp; Python/ &nbsp; React/</div>
+                <div class="t-line"><span class="t-prompt">$</span> <span class="t-cursor">_</span></div>
+              </div>
             </div>
-            <div class="terminal-body">
-              <div class="t-line"><span class="t-prompt">$</span> cat about_me.json</div>
-              <div class="t-out">{</div>
-              <div class="t-out">&nbsp;&nbsp;"name": "Arpit Sehrawat",</div>
-              <div class="t-out">&nbsp;&nbsp;"role": "Full-Stack Developer",</div>
-              <div class="t-out">&nbsp;&nbsp;"focus": "Cloud Architecture",</div>
-              <div class="t-out">&nbsp;&nbsp;"location": "Greater Noida, IN"</div>
-              <div class="t-out">}</div>
-              <div class="t-line"><span class="t-prompt">$</span> ls skills/</div>
-              <div class="t-out">AWS/ &nbsp; Docker/ &nbsp; Python/ &nbsp; React/</div>
-              <div class="t-line"><span class="t-prompt">$</span> <span class="t-cursor">_</span></div>
-            </div>
+            
+            <!-- Orbiting Tech Icons -->
+            <div class="orbit-icon o-1"><i class="fab fa-python"></i></div>
+            <div class="orbit-icon o-2"><i class="fab fa-aws"></i></div>
+            <div class="orbit-icon o-3"><i class="fab fa-java"></i></div>
+            <div class="orbit-icon o-4"><span class="t-icon">C++</span></div>
+            <div class="orbit-icon o-5"><i class="fas fa-cloud"></i></div>
           </div>
-          <div class="hero-photo-v4">
-            <img src="/arpit.jpg" alt="Arpit Sehrawat">
-            <div class="photo-overlay"></div>
+
+          <div class="hero-photo-aside">
+            <div class="photo-frame">
+              <img src="/arpit.jpg" alt="Arpit Sehrawat">
+              <div class="frame-border"></div>
+            </div>
+            <div class="photo-info">
+              <span class="info-tag">AVAILABLE</span>
+              <span class="info-loc">Greater Noida</span>
+            </div>
           </div>
         </div>
       </div>

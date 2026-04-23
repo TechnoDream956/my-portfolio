@@ -200,15 +200,30 @@ nav {
   display: flex; align-items: center; justify-content: space-between;
 }
 
-.nav-btns {
-  display: flex;
-  align-items: center;
+/* ── Minimalist Nav (Cho Laam Yuen Style) ── */
+.nav-minimal {
+  display: flex; justify-content: space-between; align-items: center;
 }
-.nav-resume {
-  padding: 0.5rem 1.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
+.nav-left .nav-name {
+  font-family: var(--font-heading); font-weight: 800; font-size: 1.4rem; color: #fff;
 }
+.nav-center { display: flex; gap: 2rem; }
+.nav-center a {
+  font-size: 0.85rem; font-weight: 500; color: #777; transition: color 0.3s;
+}
+.nav-center a:hover { color: #fff; }
+
+.nav-right { display: flex; align-items: center; gap: 2rem; }
+.nav-social-icons { display: flex; gap: 1rem; }
+.nav-social-icons a { color: #555; font-size: 1.1rem; transition: color 0.3s; }
+.nav-social-icons a:hover { color: var(--accent); }
+
+.resume-pill {
+  padding: 0.6rem 1.6rem; background: #333; color: #fff;
+  border-radius: 4px; font-weight: 600; font-size: 0.8rem;
+  transition: all 0.3s;
+}
+.resume-pill:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 10px 20px var(--accent-glow); }
 
 /* ── Tech Marquee ── */
 .tech-marquee-container {
@@ -476,39 +491,60 @@ h1 {
   to { transform: translate(30px, 30px) rotate(15deg); }
 }
 
-/* ── Hero Photo V4 ── */
-.hero-photo-v4 {
-  position: absolute;
-  bottom: -30px;
-  right: -20px;
-  width: 200px; height: 200px;
-  border-radius: 50%;
-  border: 4px solid var(--accent);
-  overflow: hidden;
-  box-shadow: 0 0 50px var(--accent-glow);
-  z-index: 5;
-  animation: float 6s ease-in-out infinite;
+/* ── Hero Layout V5 ── */
+.hero-layout-v5 {
+  display: flex; align-items: center; gap: 4rem; width: 100%;
 }
-.hero-photo-v4 img { width: 100%; height: 100%; object-fit: cover; }
-.photo-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(124, 106, 255, 0.2), transparent);
+.terminal-container { position: relative; flex: 1.2; }
+
+/* ── Orbiting Tech Icons ── */
+.orbit-icon {
+  position: absolute; width: 40px; height: 40px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: var(--accent); font-size: 1.2rem;
+  box-shadow: 0 0 15px var(--accent-glow);
+  animation: orbit 15s linear infinite;
+  z-index: 10;
+}
+.o-1 { --rx: 150px; --ry: 80px; animation-delay: 0s; }
+.o-2 { --rx: 180px; --ry: 100px; animation-delay: -3s; }
+.o-3 { --rx: 200px; --ry: 120px; animation-delay: -6s; }
+.o-4 { --rx: 160px; --ry: 90px; animation-delay: -9s; }
+.o-5 { --rx: 190px; --ry: 110px; animation-delay: -12s; }
+
+.t-icon { font-size: 0.6rem; font-weight: 800; font-family: var(--font-heading); }
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(var(--rx)) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(var(--rx)) rotate(-360deg); }
 }
 
-/* ── Bennett Badge V2 ── */
-.uni-badge-v2 {
-  display: inline-flex; align-items: center; gap: 1.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--glass-border);
-  padding: 1rem 1.5rem; border-radius: 12px;
-  margin: 2rem 0;
+/* ── Photo Aside ── */
+.hero-photo-aside { flex: 0.8; position: relative; }
+.photo-frame {
+  width: 280px; height: 350px; border-radius: 12px; overflow: hidden;
+  position: relative; border: 1px solid var(--glass-border);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
 }
-.uni-badge-inner {
-  display: flex; flex-direction: column;
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); }
+.frame-border {
+  position: absolute; inset: 15px; border: 1px solid rgba(255,255,255,0.2);
+  pointer-events: none;
 }
-.uni-text { font-family: var(--font-heading); font-weight: 800; font-size: 1.2rem; color: #fff; letter-spacing: 0.1em; }
-.uni-sub { font-size: 0.6rem; color: var(--accent); letter-spacing: 0.3em; }
-.uni-tag { font-size: 0.7rem; color: #555; text-transform: uppercase; border-left: 1px solid #333; padding-left: 1rem; }
+.photo-info {
+  position: absolute; bottom: -20px; right: -20px;
+  background: #fff; padding: 15px; border-radius: 8px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.info-tag { font-size: 0.6rem; font-weight: 800; color: #000; letter-spacing: 0.1em; }
+.info-loc { font-size: 0.8rem; color: #666; font-weight: 500; }
+
+@media (max-width: 1024px) {
+  .hero-layout-v5 { flex-direction: column; text-align: center; }
+  .orbit-icon { display: none; }
+}
 
 /* ── Terminal Window ── */
 .terminal-window {

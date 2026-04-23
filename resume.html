@@ -4,155 +4,184 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume — Arpit Sehrawat</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg: #06060a;
-      --accent: #7c6aff;
-      --text: #c8c8d0;
-      --glass-border: rgba(255, 255, 255, 0.08);
-    }
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: #fdfdfd;
+      color: #111;
       font-family: 'Inter', sans-serif;
-      margin: 0; padding: 40px 20px;
-      display: flex; justify-content: center;
+      margin: 0; padding: 40px;
+      line-height: 1.5;
+      display: flex; flex-direction: column; align-items: center;
     }
-    .resume-container {
-      max-width: 900px; width: 100%;
-      background: #0a0a0f;
-      border: 1px solid var(--glass-border);
-      display: grid; grid-template-columns: 280px 1fr;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    .resume-paper {
+      max-width: 850px; width: 100%;
+      background: white;
+      padding: 0;
     }
-    .side-bar {
-      background: rgba(124, 106, 255, 0.03);
-      padding: 40px 30px;
-      border-right: 1px solid var(--glass-border);
+    header {
+      text-align: center;
+      margin-bottom: 30px;
     }
-    .main-content { padding: 50px; }
-    
-    .profile-img {
-      width: 120px; height: 120px;
-      border-radius: 50%; border: 2px solid var(--accent);
-      margin-bottom: 20px; object-fit: cover;
+    h1 {
+      font-family: 'Crimson Pro', serif;
+      font-size: 2.4rem; font-weight: 700;
+      margin: 0 0 10px; text-transform: uppercase; letter-spacing: 1px;
     }
-    h1 { font-family: 'Outfit', sans-serif; font-size: 1.8rem; margin: 0; color: #fff; }
-    .role { color: var(--accent); font-size: 0.9rem; font-weight: 600; margin-top: 5px; }
-    
+    .contact-info {
+      font-size: 0.9rem; color: #555;
+      display: flex; justify-content: center; gap: 15px;
+    }
+    .contact-info a { color: #555; text-decoration: none; }
+    .contact-info a:hover { text-decoration: underline; }
+
+    section { margin-bottom: 25px; width: 100%; }
     .section-title {
-      font-size: 0.75rem; letter-spacing: 0.2em; color: var(--accent);
-      margin: 30px 0 15px; border-bottom: 1px solid var(--glass-border);
-      padding-bottom: 5px; text-transform: uppercase;
-    }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .skill-tags span {
-      background: rgba(255,255,255,0.05); padding: 4px 10px;
-      border-radius: 4px; font-size: 0.75rem; color: #aaa;
-    }
-    
-    .entry { margin-bottom: 25px; }
-    .entry-head { display: flex; justify-content: space-between; margin-bottom: 5px; }
-    .entry strong { font-size: 1.1rem; color: #fff; }
-    .entry span { font-size: 0.85rem; color: #666; }
-    .entry p { margin: 5px 0; font-size: 0.95rem; color: #888; }
-    
-    .print-btn {
-      position: fixed; top: 20px; right: 20px;
-      padding: 10px 20px; background: var(--accent);
-      color: #fff; border: none; border-radius: 50px;
-      cursor: pointer; font-family: 'Outfit'; font-weight: 600;
-      box-shadow: 0 10px 20px rgba(124, 106, 255, 0.3);
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 3px; margin-bottom: 12px;
     }
 
-    @media print {
-      .print-btn { display: none; }
-      body { padding: 0; background: white; }
-      .resume-container {
-        border: none; box-shadow: none; width: 100%; max-width: 100%;
-        grid-template-columns: 220px 1fr; background: white; color: black;
-      }
-      .side-bar { background: #f9f9fb !important; border-right: 1px solid #eee; color: #333; }
-      .main-content { color: #222; }
-      h1, .entry strong { color: #000 !important; }
-      .role { color: #555 !important; }
-      .skill-tags span { background: #eee !important; color: #333 !important; border: 1px solid #ddd; }
-      .section-title { color: #000 !important; border-bottom: 2px solid #000; }
+    .entry { margin-bottom: 15px; }
+    .entry-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 2px;
     }
-    
-    @media (max-width: 768px) {
-      .resume-container { grid-template-columns: 1fr; }
-      .side-bar { border-right: none; border-bottom: 1px solid var(--glass-border); }
+    .entry-header strong { font-size: 1.05rem; }
+    .entry-header em { font-style: italic; font-size: 0.95rem; color: #333; }
+    .entry-header span { font-size: 0.95rem; color: #444; }
+
+    ul {
+      margin: 5px 0 0; padding-left: 20px;
+      list-style-type: disc;
+    }
+    li {
+      font-size: 0.95rem; color: #333;
+      margin-bottom: 4px;
+    }
+
+    .skills-grid {
+      display: flex; flex-direction: column; gap: 5px;
+    }
+    .skills-row { font-size: 0.95rem; }
+    .skills-row strong { font-weight: 600; width: 120px; display: inline-block; }
+
+    .print-controls {
+      position: fixed; top: 20px; right: 20px;
+      display: flex; gap: 10px;
+    }
+    .btn {
+      padding: 8px 16px; background: #000; color: #fff;
+      border: none; border-radius: 4px; cursor: pointer;
+      font-family: 'Inter'; font-weight: 600; font-size: 0.85rem;
+    }
+    .btn.back { background: #666; }
+
+    @media print {
+      .print-controls { display: none; }
+      body { padding: 0; background: white; }
+      .resume-paper { width: 100%; padding: 0; box-shadow: none; }
     }
   </style>
 </head>
 <body>
-  <button class="print-btn" onclick="window.print()">Download as PDF</button>
+  <div class="print-controls">
+    <button class="btn back" onclick="location.href='index.html'">Back to Portfolio</button>
+    <button class="btn" onclick="window.print()">Print Resume</button>
+  </div>
 
-  <div class="resume-container">
-    <div class="side-bar">
-      <img src="/arpit.jpg" alt="Arpit Sehrawat" class="profile-img">
+  <div class="resume-paper">
+    <header>
       <h1>Arpit Sehrawat</h1>
-      <div class="role">Developer & Cloud Student</div>
-      
-      <div class="section-title">Contact</div>
-      <div style="font-size: 0.8rem; color: #888; line-height: 1.8;">
-        arpitsehrawat2030@gmail.com<br>
-        Greater Noida, UP<br>
-        github.com/TechnoDream956
+      <div class="contact-info">
+        <span>Greater Noida, UP</span>
+        <span>•</span>
+        <a href="mailto:arpitsehrawat2030@gmail.com">arpitsehrawat2030@gmail.com</a>
+        <span>•</span>
+        <a href="https://github.com/TechnoDream956">github.com/TechnoDream956</a>
+        <span>•</span>
+        <a href="https://linkedin.com">linkedin.com/in/arpitsehrawat</a>
       </div>
+    </header>
 
-      <div class="section-title">Technical</div>
-      <div class="skill-tags">
-        <span>Python</span> <span>Java</span> <span>C++</span>
-        <span>JavaScript</span> <span>AWS</span> <span>Docker</span>
-        <span>SQL</span> <span>Linux</span> <span>Git</span>
-      </div>
-
-      <div class="section-title">Productivity</div>
-      <div class="skill-tags">
-        <span>MS Excel</span> <span>MS Word</span> <span>PowerPoint</span>
-        <span>Medium</span> <span>Postman</span> <span>VS Code</span>
-      </div>
-
-      <div class="section-title">Languages</div>
-      <div class="skill-tags">
-        <span>English</span> <span>Hindi</span>
-      </div>
-    </div>
-
-    <div class="main-content">
+    <section>
       <div class="section-title">Education</div>
       <div class="entry">
-        <div class="entry-head">
-          <strong>Bennett University</strong>
-          <span>2024 — 2028</span>
+        <div class="entry-header">
+          <strong>BENNETT UNIVERSITY</strong>
+          <span>Greater Noida, IN</span>
         </div>
-        <p>B.Tech in Computer Science & Engineering (Cloud Spec.)</p>
-        <p>Current CGPA: ~8.0/10</p>
+        <div class="entry-header">
+          <em>Bachelor of Technology in Computer Science & Engineering (Cloud Computing)</em>
+          <span>2024 – 2028</span>
+        </div>
+        <ul>
+          <li>Maintaining a CGPA of <strong>8.0/10</strong>; focusing on scalable cloud architecture and data systems.</li>
+          <li>Relevant Coursework: Data Engineering, Cloud Infrastructure, Object-Oriented Programming (Java/C++).</li>
+        </ul>
       </div>
+    </section>
 
-      <div class="section-title">Experience & Impact</div>
+    <section>
+      <div class="section-title">Technical Projects</div>
       <div class="entry">
-        <div class="entry-head"><strong>Founder & Lead Developer</strong></div>
-        <p>Smart Canteen Infrastructure Project</p>
-        <p>Built a WebSocket-based real-time platform for 1000+ students. Optimized backend latency and improved campus ordering efficiency.</p>
+        <div class="entry-header">
+          <strong>Smart Canteen Infrastructure Project</strong>
+          <span>Bennett University</span>
+        </div>
+        <ul>
+          <li><strong>Engineered</strong> a full-stack real-time ordering system using WebSockets, serving 1000+ active campus users.</li>
+          <li><strong>Optimized</strong> backend transaction latency by 40% through efficient database indexing and caching strategies.</li>
+          <li><strong>Developed</strong> a responsive frontend dashboard, improving the user ordering experience and reducing peak-hour queues.</li>
+        </ul>
       </div>
       <div class="entry">
-        <div class="entry-head"><strong>AI Health Researcher</strong></div>
-        <p>Vital Arogya Guardian</p>
-        <p>Engineered an AI diagnostic engine using Flask for medical risk assessment.</p>
+        <div class="entry-header">
+          <strong>Vital Arogya Guardian (AI Health Engine)</strong>
+          <span>Personal Project</span>
+        </div>
+        <ul>
+          <li><strong>Architected</strong> a predictive diagnostic platform using Flask and Machine Learning to assess patient health risks.</li>
+          <li><strong>Integrated</strong> multiple medical data streams, achieving high-accuracy preliminary health risk assessments.</li>
+          <li><strong>Deployed</strong> the application on cloud infrastructure, ensuring 99.9% availability for remote diagnostics.</li>
+        </ul>
       </div>
+    </section>
 
-      <div class="section-title">Achievements</div>
-      <div style="font-size: 0.95rem; color: #888; line-height: 2;">
-        • AWS Academy Graduate — Cloud Architecting<br>
-        • AWS Academy Graduate — Data Engineering<br>
-        • Infosys Springboard Python Professional<br>
-        • Active Technical Content Creator on Medium
+    <section>
+      <div class="section-title">Leadership & Experience</div>
+      <div class="entry">
+        <div class="entry-header">
+          <strong>Founder & Lead Developer</strong>
+          <span>Campus Tech Initiative</span>
+        </div>
+        <ul>
+          <li><strong>Led</strong> a team of 3 developers to identify and solve campus-wide technical inefficiencies.</li>
+          <li><strong>Mentored</strong> junior students in Cloud Computing fundamentals and Python programming.</li>
+        </ul>
       </div>
-    </div>
+    </section>
+
+    <section>
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div class="skills-row"><strong>Languages:</strong> Python, Java, C++, JavaScript, SQL</div>
+        <div class="skills-row"><strong>Cloud/DevOps:</strong> AWS (Academy Graduate), Docker, Linux, Git</div>
+        <div class="skills-row"><strong>Tools:</strong> MS Office Suite (Excel, Word), Postman, VS Code, Flask</div>
+        <div class="skills-row"><strong>Soft Skills:</strong> Leadership, Technical Writing (Medium Author), Team Collaboration</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Certifications</div>
+      <ul>
+        <li>AWS Academy Graduate — Cloud Architecting & Data Engineering</li>
+        <li>Infosys Springboard Python Professional Certification</li>
+        <li>Active contributor and author on Medium, focusing on Cloud and AI trends</li>
+      </ul>
+    </section>
   </div>
 </body>
 </html>
