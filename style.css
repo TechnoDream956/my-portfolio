@@ -529,10 +529,10 @@ h1 {
   line-height: 0.95; letter-spacing: -3px; margin: 20px 0;
 }
 .typing-slow {
-  color: var(--accent); border-right: 4px solid var(--accent);
+  color: var(--accent);
   white-space: nowrap; overflow: hidden; width: 0;
   display: inline-block;
-  animation: typing-s 10s steps(22) infinite, blink 1.2s step-end infinite;
+  animation: typing-s 10s steps(22) infinite;
 }
 @keyframes typing-s {
   0%, 10% { width: 0; }
