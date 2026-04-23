@@ -74,24 +74,30 @@
         </div>
       </div>
       <div class="hero-right">
-        <div class="terminal-window">
-          <div class="terminal-header">
-            <span class="t-dot red"></span>
-            <span class="t-dot yellow"></span>
-            <span class="t-dot green"></span>
-            <span class="t-title">arpit@cloud:~</span>
+        <div class="hero-visual-stack">
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="t-dot red"></span>
+              <span class="t-dot yellow"></span>
+              <span class="t-dot green"></span>
+              <span class="t-title">arpit@cloud:~</span>
+            </div>
+            <div class="terminal-body">
+              <div class="t-line"><span class="t-prompt">$</span> cat about_me.json</div>
+              <div class="t-out">{</div>
+              <div class="t-out">&nbsp;&nbsp;"name": "Arpit Sehrawat",</div>
+              <div class="t-out">&nbsp;&nbsp;"role": "Full-Stack Developer",</div>
+              <div class="t-out">&nbsp;&nbsp;"focus": "Cloud Architecture",</div>
+              <div class="t-out">&nbsp;&nbsp;"location": "Greater Noida, IN"</div>
+              <div class="t-out">}</div>
+              <div class="t-line"><span class="t-prompt">$</span> ls skills/</div>
+              <div class="t-out">AWS/ &nbsp; Docker/ &nbsp; Python/ &nbsp; React/</div>
+              <div class="t-line"><span class="t-prompt">$</span> <span class="t-cursor">_</span></div>
+            </div>
           </div>
-          <div class="terminal-body">
-            <div class="t-line"><span class="t-prompt">$</span> cat about_me.json</div>
-            <div class="t-out">{</div>
-            <div class="t-out">&nbsp;&nbsp;"name": "Arpit Sehrawat",</div>
-            <div class="t-out">&nbsp;&nbsp;"role": "Full-Stack Developer",</div>
-            <div class="t-out">&nbsp;&nbsp;"focus": "Cloud Architecture",</div>
-            <div class="t-out">&nbsp;&nbsp;"location": "Greater Noida, IN"</div>
-            <div class="t-out">}</div>
-            <div class="t-line"><span class="t-prompt">$</span> ls skills/</div>
-            <div class="t-out">AWS/ &nbsp; Docker/ &nbsp; Python/ &nbsp; React/</div>
-            <div class="t-line"><span class="t-prompt">$</span> <span class="t-cursor">_</span></div>
+          <div class="hero-photo-floating">
+            <img src="/arpit.jpg" alt="Arpit Sehrawat">
+            <div class="photo-glow"></div>
           </div>
         </div>
       </div>
@@ -158,7 +164,7 @@
             </p>
             <div class="uni-badge-container">
               <div class="uni-logo-wrapper">
-                <img src="/bennett_logo.jpg" alt="Bennett University Logo" class="uni-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Bennett_University_logo.png" alt="Bennett University Logo" class="uni-logo">
               </div>
               <div class="uni-info">
                 <span class="uni-name">Bennett University</span>
@@ -476,11 +482,29 @@
           </div>
 
           <div class="res-skills-side">
-            <h4>TOP SKILLS</h4>
+            <h4>TECHNICAL</h4>
             <div class="res-skill-tags">
-              <span>Python</span> <span>AWS</span> <span>Docker</span>
-              <span>Java</span> <span>C++</span> <span>React</span>
-              <span>Node.js</span> <span>SQL</span> <span>Linux</span>
+              <span>Python</span> <span>Java</span> <span>C++</span>
+              <span>JavaScript</span> <span>AWS</span> <span>Docker</span>
+              <span>SQL</span> <span>Linux</span> <span>Git</span>
+            </div>
+            
+            <h4 style="margin-top: 2rem;">TOOLS & PRODUCTIVITY</h4>
+            <div class="res-skill-tags">
+              <span>MS Excel</span> <span>MS Word</span> <span>PowerPoint</span>
+              <span>Medium</span> <span>Postman</span> <span>VS Code</span>
+            </div>
+
+            <h4 style="margin-top: 2rem;">SOFT SKILLS</h4>
+            <div class="res-skill-tags">
+              <span>Leadership</span> <span>Public Speaking</span>
+              <span>Team Collaboration</span> <span>Problem Solving</span>
+            </div>
+
+            <h4 style="margin-top: 2rem;">LANGUAGES</h4>
+            <div class="res-skill-tags">
+              <span>English (Proficient)</span>
+              <span>Hindi (Native)</span>
             </div>
           </div>
         </div>
@@ -488,7 +512,7 @@
         <div class="resume-main">
           <div class="res-main-header">
             <h3>PROFESSIONAL PROFILE</h3>
-            <p>Ambitious Cloud Computing student at Bennett University with a strong background in developing scalable web architectures and AI-driven solutions. Proven ability to architect complex systems like the Smart Canteen infrastructure.</p>
+            <p>High-achieving Computer Science student specializing in Cloud Computing. Passionate about architecting scalable systems and leveraging AI for real-world impact. Demonstrated ability to lead technical projects from conception to deployment, focusing on efficiency and user-centric design.</p>
           </div>
 
           <div class="res-main-section">
@@ -498,33 +522,48 @@
                 <strong>Bennett University</strong>
                 <span>2024 — 2028</span>
               </div>
-              <p>B.Tech in Computer Science & Engineering (Cloud Spec.)</p>
-              <small>Relevant Coursework: Data Structures, Cloud Architecture, DB Management</small>
+              <p>Bachelor of Technology in Computer Science & Engineering</p>
+              <p>Specialization: Cloud Computing | Current CGPA: ~8.0/10</p>
+              <small>Key Modules: Data Structures (DSA), Cloud Infrastructure, Database Systems, Operating Systems.</small>
             </div>
           </div>
 
           <div class="res-main-section">
-            <h3>KEY PROJECTS</h3>
+            <h3>EXPERIENCE & IMPACT</h3>
             <div class="res-entry">
-              <div class="res-entry-head"><strong>Smart Canteen Management</strong></div>
-              <p>Built a real-time ordering system using Node.js and WebSockets. Optimized backend latency by 40% and served 1000+ users.</p>
+              <div class="res-entry-head"><strong>Founder & Lead Developer</strong></div>
+              <p>Smart Canteen Infrastructure Project</p>
+              <p>Identified campus-wide ordering inefficiencies and built a WebSocket-based real-time platform. Managed full-cycle deployment and user testing with 1000+ students.</p>
             </div>
             <div class="res-entry">
-              <div class="res-entry-head"><strong>Vital Arogya Guardian</strong></div>
-              <p>Developed an AI-health diagnostic engine with Flask and React for immediate medical risk assessment.</p>
+              <div class="res-entry-head"><strong>AI Health Researcher</strong></div>
+              <p>Vital Arogya Guardian</p>
+              <p>Engineered a predictive symptom-analysis tool using Flask. Integrated multiple data sources to provide high-accuracy health risk assessments.</p>
             </div>
           </div>
 
           <div class="res-main-section">
-            <h3>CERTIFICATIONS</h3>
+            <h3>ACHIEVEMENTS</h3>
             <ul class="res-certs">
-              <li>AWS Academy Graduate — Cloud Architecting</li>
-              <li>AWS Academy Graduate — Data Engineering</li>
-              <li>Infosys Springboard Python Professional</li>
+              <li><strong>AWS Cloud Architecting</strong> — Professional Training Completion</li>
+              <li><strong>Data Engineering Specialist</strong> — AWS Academy</li>
+              <li><strong>Python Development Professional</strong> — Infosys Springboard</li>
+              <li><strong>Technical Content Creator</strong> — Active on Medium/Tech Blogs</li>
+              <li><strong>Hackathon Finalist</strong> — Innovation in Campus Solutions</li>
             </ul>
           </div>
+
+          <div class="res-main-section">
+            <h3>EXTRACURRICULAR</h3>
+            <div class="res-entry">
+              <p>Active member of the University Tech Club, participating in weekly coding contests and mentoring junior students in Cloud fundamentals.</p>
+            </div>
+          </div>
           
-          <button class="pill-btn" onclick="window.print()" style="margin-top: 2rem; width: 100%; justify-content: center;">Download Full CV (PDF)</button>
+          <div class="cv-download-footer">
+            <button class="pill-btn" onclick="window.print()">Download Official CV (PDF)</button>
+            <p style="font-size: 0.7rem; color: #555; margin-top: 1rem; text-align: center;">Generated via Arpit's Professional Portfolio v3.0</p>
+          </div>
         </div>
       </div>
     </div>
