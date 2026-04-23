@@ -523,22 +523,25 @@ h1 {
   50% { transform: translateY(-15px); }
 }
 
-.hero-center-v9 { flex: 1.4; min-width: 450px; }
+.hero-center-v9 { flex: 1.4; min-width: 550px; }
 .hero-title-v9 {
   font-family: var(--font-heading); font-weight: 900; font-size: 5.2rem;
   line-height: 1.1; letter-spacing: -3px; margin: 20px 0;
   min-height: 2.2em; /* Prevents vertical collapse */
+  width: 100%;
 }
 .typing-slow {
   color: var(--accent);
-  white-space: nowrap; overflow: hidden; width: 0;
+  white-space: nowrap; overflow: hidden;
   display: inline-block;
+  vertical-align: bottom;
+  max-width: 0;
   animation: typing-s 10s steps(22) infinite;
 }
 @keyframes typing-s {
-  0%, 10% { width: 0; }
-  40%, 70% { width: 100%; }
-  95%, 100% { width: 0; }
+  0%, 10% { max-width: 0; }
+  40%, 70% { max-width: 100%; }
+  95%, 100% { max-width: 0; }
 }
 
 .hero-right-v9 { flex: 1.2; display: flex; justify-content: flex-end; }
