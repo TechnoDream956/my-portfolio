@@ -1,220 +1,201 @@
-/* ─────────────────────────────────────────────────────────────
-   enhancements.js  — Arpit's portfolio subtle additions
-   Add before </body>: <script src="enhancements.js"></script>
-───────────────────────────────────────────────────────────── */
-
+/* enhancements.js — Arpit portfolio additions */
 (function () {
   'use strict';
 
-  /* ══════════════════════════════════════════
-     1.  INJECT STYLES
-  ══════════════════════════════════════════ */
+  /* ── 1. STYLES ─────────────────────────────────────── */
   const css = `
-    /* Scroll reveal */
-    .eh-hidden { opacity: 0; transform: translateY(22px); }
+    .eh-hidden { opacity: 0; transform: translateY(20px); }
     .eh-shown  {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: opacity .7s cubic-bezier(.22,1,.36,1),
-                  transform .7s cubic-bezier(.22,1,.36,1);
+      opacity: 1 !important; transform: none !important;
+      transition: opacity .65s cubic-bezier(.22,1,.36,1),
+                  transform .65s cubic-bezier(.22,1,.36,1);
     }
+    .eh-d1 { transition-delay:.05s!important }
+    .eh-d2 { transition-delay:.12s!important }
+    .eh-d3 { transition-delay:.19s!important }
 
-    /* ── Experience Timeline ── */
-    .eh-timeline { position: relative; margin-top: 8px; }
+    /* Timeline */
+    .eh-timeline { position:relative; padding-top:4px; }
     .eh-timeline::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 14px; bottom: 40px;
-      width: 1.5px;
+      content:''; position:absolute;
+      left:0; top:14px; bottom:40px; width:1.5px;
       background: linear-gradient(to bottom,
-        rgba(123,108,255,0.9),
-        rgba(123,108,255,0.3) 60%,
-        transparent);
-      border-radius: 4px;
+        rgba(123,108,255,.9), rgba(123,108,255,.25) 70%, transparent);
+      border-radius:4px;
     }
-    .eh-entry {
-      position: relative;
-      padding-left: 28px;
-      padding-bottom: 44px;
-    }
-    .eh-entry:last-child { padding-bottom: 0; }
+    .eh-entry { position:relative; padding-left:26px; padding-bottom:40px; }
+    .eh-entry:last-child { padding-bottom:0; }
     .eh-dot {
-      position: absolute;
-      left: -5px; top: 6px;
-      width: 11px; height: 11px;
-      border-radius: 50%;
-      background: #7b6cff;
-      border: 2.5px solid #0b0f1e;
-      box-shadow: 0 0 0 3px rgba(123,108,255,0.18);
-      transition: box-shadow 0.3s ease, background 0.3s ease;
-      z-index: 1;
-      display: inline-block;
+      position:absolute; left:-4.5px; top:5px;
+      width:10px; height:10px; border-radius:50%;
+      background:#7b6cff; border:2px solid #0b0f1e;
+      box-shadow: 0 0 0 3px rgba(123,108,255,.2);
+      transition: box-shadow .3s, background .3s;
+      display:block;
     }
     .eh-entry:hover .eh-dot {
-      background: #a49cff;
-      box-shadow: 0 0 0 8px rgba(123,108,255,0.12);
+      background:#a49cff;
+      box-shadow: 0 0 0 8px rgba(123,108,255,.12);
     }
 
-    /* ── Skill list item underline swipe ── */
-    .eh-skill-li {
-      position: relative;
-      cursor: default;
-    }
+    /* Skill li */
+    .eh-skill-li { position:relative; cursor:default; }
     .eh-skill-li::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: 0;
-      height: 1px; width: 0;
-      background: linear-gradient(90deg, rgba(123,108,255,0.7), transparent);
-      transition: width 0.35s cubic-bezier(.22,1,.36,1);
+      content:''; position:absolute;
+      left:0; bottom:0; height:1px; width:0;
+      background:linear-gradient(90deg,rgba(123,108,255,.7),transparent);
+      transition: width .35s cubic-bezier(.22,1,.36,1);
     }
-    .eh-skill-li:hover::after { width: 100%; }
-    .eh-skill-li:hover { color: #c5c2ff !important; transition: color 0.2s; }
+    .eh-skill-li:hover::after { width:100%; }
+    .eh-skill-li:hover { color:#c5c2ff !important; transition:color .2s; }
 
-    /* ── Skill card gentle lift ── */
+    /* Skill card */
     .eh-skill-card {
-      transition:
-        transform 0.32s cubic-bezier(.22,1,.36,1),
-        border-color 0.3s,
-        box-shadow 0.3s !important;
+      transition: transform .3s cubic-bezier(.22,1,.36,1),
+                  border-color .3s, box-shadow .3s !important;
     }
     .eh-skill-card:hover {
-      transform: translateY(-5px) !important;
-      border-color: rgba(123,108,255,0.30) !important;
-      box-shadow: 0 18px 44px rgba(0,0,0,0.28),
-                  0 0 28px rgba(123,108,255,0.06) !important;
+      transform:translateY(-5px) !important;
+      border-color:rgba(123,108,255,.3) !important;
+      box-shadow:0 18px 44px rgba(0,0,0,.28),
+                 0 0 28px rgba(123,108,255,.06) !important;
     }
-
-    /* ── Stagger helpers ── */
-    .eh-d1 { transition-delay: 0.04s !important; }
-    .eh-d2 { transition-delay: 0.10s !important; }
-    .eh-d3 { transition-delay: 0.16s !important; }
-    .eh-d4 { transition-delay: 0.22s !important; }
-    .eh-d5 { transition-delay: 0.28s !important; }
-    .eh-d6 { transition-delay: 0.34s !important; }
   `;
-  const styleTag = document.createElement('style');
-  styleTag.textContent = css;
-  document.head.appendChild(styleTag);
+  const s = document.createElement('style');
+  s.textContent = css;
+  document.head.appendChild(s);
 
+  /* ── 2. DEBUG: log what h3s exist ─────────────────── */
+  console.log('[enhancements] loaded. h3s found:',
+    Array.from(document.querySelectorAll('h3')).map(h => h.textContent.trim()));
 
-  /* ══════════════════════════════════════════
-     2.  REMOVE "MEDIUM TECHNICAL AUTHOR" ENTRY
-  ══════════════════════════════════════════ */
-  document.querySelectorAll('h3').forEach(h3 => {
-    if (!/medium technical author/i.test(h3.textContent)) return;
-    const victims = [h3];
-    let next = h3.nextElementSibling;
-    let count = 0;
-    while (next && count < 3 && next.tagName !== 'H3') {
-      victims.push(next);
-      next = next.nextElementSibling;
-      count++;
+  /* ── 3. REMOVE MEDIUM ENTRY ────────────────────────── */
+  document.querySelectorAll('h3, strong').forEach(el => {
+    if (!/medium technical author/i.test(el.textContent)) return;
+    // go up to nearest block-level ancestor that is a direct child of the exp area
+    let target = el;
+    while (target.parentElement && target.parentElement.tagName !== 'SECTION'
+      && !target.parentElement.classList.contains('experience-content')
+      && target.parentElement.childElementCount <= 4) {
+      target = target.parentElement;
     }
-    const prev = h3.previousElementSibling;
-    if (prev && /ongoing|^\d{4}/i.test(prev.textContent.trim())) victims.push(prev);
-    victims.forEach(el => el.remove());
+    // collect: the element + previous "Ongoing" sibling + following role/desc
+    const toRemove = new Set([target]);
+    const prev = target.previousElementSibling;
+    if (prev && /ongoing/i.test(prev.textContent)) toRemove.add(prev);
+    let next = target.nextElementSibling;
+    let n = 0;
+    while (next && n < 2 && !/\d{4}/i.test(next.textContent.slice(0, 8))) {
+      toRemove.add(next); next = next.nextElementSibling; n++;
+    }
+    toRemove.forEach(el => { console.log('[enhancements] removing:', el.textContent.trim().slice(0, 40)); el.remove(); });
   });
 
+  /* ── 4. TIMELINE ────────────────────────────────────── */
+  // Strategy: find exp section, collect all experience blocks,
+  // wrap in timeline entries. We detect exp section by its h2 text.
+  let expSection = null;
+  document.querySelectorAll('section').forEach(sec => {
+    if (/ecosystem/i.test(sec.textContent) && /campus tech/i.test(sec.textContent)) {
+      expSection = sec;
+    }
+  });
 
-  /* ══════════════════════════════════════════
-     3.  BUILD TIMELINE in EXPERIENCE section
-  ══════════════════════════════════════════ */
-  (function buildTimeline() {
-    // Find the direct parent of the Campus Tech h3
-    let host = null;
-    document.querySelectorAll('h3').forEach(h3 => {
-      if (/campus tech initiative/i.test(h3.textContent)) host = h3.parentElement;
-    });
-    if (!host) return;
+  if (expSection) {
+    console.log('[enhancements] found exp section');
 
-    const h3s = Array.from(host.querySelectorAll('h3'));
-    if (!h3s.length) return;
+    // Find all h3s in section
+    const allH3 = Array.from(expSection.querySelectorAll('h3'));
+    console.log('[enhancements] exp h3s:', allH3.map(h => h.textContent.trim()));
 
-    // Each group: [optional-date, h3, role, desc] — all direct children of host
-    const groups = h3s.map(h3 => {
-      const nodes = [];
-      // date before h3
-      const prev = h3.previousElementSibling;
-      if (prev && /\d{4}|ongoing/i.test(prev.textContent.trim())) nodes.push(prev);
-      // h3 itself
-      nodes.push(h3);
-      // up to 2 siblings after
-      let sib = h3.nextElementSibling;
-      let i = 0;
-      while (sib && i < 2 && sib.tagName !== 'H3') {
-        if (sib.parentElement === host) {
-          nodes.push(sib);
-          sib = sib.nextElementSibling;
-          i++;
-        } else break;
-      }
-      return nodes;
-    });
+    if (allH3.length > 0) {
+      // Find the container that holds the first h3
+      const container = allH3[0].parentElement;
 
-    const wrapper = document.createElement('div');
-    wrapper.className = 'eh-timeline';
+      // Snapshot all direct children of container that come after the h2
+      const h2 = container.querySelector('h2') || expSection.querySelector('h2');
+      let children = Array.from(container.children);
 
-    groups.forEach((group, idx) => {
-      const entry = document.createElement('div');
-      entry.className = 'eh-entry eh-hidden eh-d' + (idx + 1);
+      // Split children into groups, each starting with a date or h3
+      // First pass: flatten into a node list after the h2
+      const afterH2 = [];
+      let pastH2 = !h2; // if no h2 found, include everything
+      children.forEach(child => {
+        if (!pastH2) { if (child === h2 || child.contains(h2)) { pastH2 = true; } return; }
+        afterH2.push(child);
+      });
 
-      // dot
-      const dot = document.createElement('span');
-      dot.className = 'eh-dot';
-      entry.appendChild(dot);
+      // Group: a group starts when we see an h3 (or element just before an h3 that looks like a date)
+      const groups = [];
+      let current = null;
+      afterH2.forEach(el => {
+        const isTitle = el.tagName === 'H3' || el.querySelector('h3');
+        const isDate = !isTitle && /^\s*(\d{4}|ongoing)/i.test(el.textContent.trim());
+        if (isDate) {
+          current = { nodes: [el] };
+          groups.push(current);
+        } else if (isTitle) {
+          if (!current) { current = { nodes: [] }; groups.push(current); }
+          current.nodes.push(el);
+        } else {
+          if (current) current.nodes.push(el);
+        }
+      });
 
-      // move nodes
-      group.forEach(el => entry.appendChild(el));
-      wrapper.appendChild(entry);
-    });
+      console.log('[enhancements] groups found:', groups.length);
 
-    // Clear any leftover blank text nodes then append
-    host.appendChild(wrapper);
-  })();
+      if (groups.length > 0) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'eh-timeline';
 
+        groups.forEach((g, i) => {
+          const entry = document.createElement('div');
+          entry.className = `eh-entry eh-hidden eh-d${Math.min(i + 1, 3)}`;
+          const dot = document.createElement('span');
+          dot.className = 'eh-dot';
+          entry.appendChild(dot);
+          g.nodes.forEach(n => entry.appendChild(n)); // move (not clone)
+          wrapper.appendChild(entry);
+        });
 
-  /* ══════════════════════════════════════════
-     4.  SKILLS — underline swipe + card lift
-  ══════════════════════════════════════════ */
-  (function enhanceSkills() {
-    let skillSection = null;
-    document.querySelectorAll('section').forEach(s => {
-      if (/work with/i.test(s.textContent) && /backend/i.test(s.textContent)) skillSection = s;
-    });
-    if (!skillSection) return;
-
-    // underline swipe on each li
-    skillSection.querySelectorAll('li').forEach((li, i) => {
-      li.classList.add('eh-skill-li', 'eh-hidden', 'eh-d' + ((i % 6) + 1));
-    });
-
-    // lift on cards that contain h4 + ul
-    skillSection.querySelectorAll('div').forEach(div => {
-      if (div.querySelector(':scope > h4') || div.querySelector(':scope > ul, :scope > h4')) {
-        if (div.querySelector('h4') && div.querySelector('ul')) {
-          div.classList.add('eh-skill-card', 'eh-hidden', 'eh-d' + Math.min(div.closest('section').querySelectorAll('.eh-skill-card').length + 1, 6));
+        // Insert timeline after h2 in container
+        if (h2 && h2.parentElement === container) {
+          h2.after(wrapper);
+        } else {
+          container.appendChild(wrapper);
         }
       }
+    }
+  } else {
+    console.warn('[enhancements] exp section NOT found');
+  }
+
+  /* ── 5. SKILLS ──────────────────────────────────────── */
+  const skillSec = document.getElementById('skills');
+  if (skillSec) {
+    skillSec.querySelectorAll('li').forEach((li, i) => {
+      li.classList.add('eh-skill-li', 'eh-hidden', `eh-d${(i % 3) + 1}`);
     });
-  })();
+    skillSec.querySelectorAll('div').forEach(div => {
+      if (div.querySelector('h4') && div.querySelector('ul')) {
+        div.classList.add('eh-skill-card', 'eh-hidden', 'eh-d1');
+      }
+    });
+  }
 
-
-  /* ══════════════════════════════════════════
-     5.  SCROLL REVEAL
-  ══════════════════════════════════════════ */
-  setTimeout(function () {
-    const obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
+  /* ── 6. SCROLL REVEAL ───────────────────────────────── */
+  setTimeout(() => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.remove('eh-hidden');
           e.target.classList.add('eh-shown');
           obs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-
-    document.querySelectorAll('.eh-hidden').forEach(function (el) { obs.observe(el); });
-  }, 100);
+    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+    document.querySelectorAll('.eh-hidden').forEach(el => obs.observe(el));
+    console.log('[enhancements] reveal observer set up on', document.querySelectorAll('.eh-hidden').length, 'elements');
+  }, 150);
 
 })();
