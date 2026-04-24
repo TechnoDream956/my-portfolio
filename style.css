@@ -1703,6 +1703,144 @@ section {
   padding-left: 8px;
 }
 
+/* ── Experience Timeline ── */
+.timeline {
+  position: relative;
+  padding-top: 0.5rem;
+  margin-top: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 0;
+  width: 1.5px;
+  background: linear-gradient(to bottom,
+      var(--accent) 0%,
+      rgba(124, 106, 255, 0.3) 70%,
+      transparent 100%);
+  border-radius: 4px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  padding-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -4.5px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #0b0f1e;
+  box-shadow: 0 0 0 3px rgba(124, 106, 255, 0.2),
+    0 0 12px rgba(124, 106, 255, 0.3);
+  transition: box-shadow 0.3s, background 0.3s, transform 0.3s;
+}
+
+.timeline-item:hover::before {
+  background: #a49cff;
+  box-shadow: 0 0 0 8px rgba(124, 106, 255, 0.12),
+    0 0 20px rgba(124, 106, 255, 0.4);
+  transform: scale(1.2);
+}
+
+.timeline-date {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+  font-family: var(--font-mono, monospace);
+  opacity: 0.85;
+}
+
+.timeline-content h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 0.2rem;
+}
+
+.timeline-role {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid rgba(124, 106, 255, 0.2);
+  border-radius: 100px;
+  padding: 0.15rem 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.timeline-content p {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  max-width: 560px;
+}
+
+.timeline-item:hover .timeline-content h3 {
+  color: #c5c2ff;
+  transition: color 0.2s;
+}
+
+/* ── Coursework Badges ── */
+.skill-sub-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  opacity: 0.65;
+}
+
+.coursework-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.course-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 1.1rem;
+  border-radius: 100px;
+  border: 1px solid rgba(124, 106, 255, 0.25);
+  background: rgba(124, 106, 255, 0.06);
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: default;
+  transition: all 0.25s var(--ease);
+  white-space: nowrap;
+}
+
+.course-badge:hover {
+  border-color: var(--accent);
+  background: rgba(124, 106, 255, 0.14);
+  color: #c5c2ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(124, 106, 255, 0.18);
+}
+
 /* ── Contact ── */
 #contact {
   text-align: center;
