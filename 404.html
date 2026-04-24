@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Lost in the Cloud | Arpit Sehrawat</title>
+  <meta name="robots" content="noindex" />
+
+  <!-- Same favicon as main site -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2306060a'/><rect width='100' height='100' rx='22' fill='url(%23g)' opacity='0.8'/><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%237c6aff'/><stop offset='100%25' stop-color='%2300d4ff'/></linearGradient></defs><text y='0.88em' font-size='46' x='50%25' dominant-baseline='auto' text-anchor='middle' font-family='Georgia,serif' fill='white' font-weight='700'>AS</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&family=Playfair+Display:ital@1&family=Mr+De+Haviland&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg: #06060a;
+      --accent: #7c6aff;
+      --accent-soft: rgba(124, 106, 255, 0.1);
+      --accent-glow: rgba(124, 106, 255, 0.35);
+      --accent2: #00d4ff;
+      --accent2-glow: rgba(0, 212, 255, 0.3);
+      --green: #34d399;
+      --text: #c8c8d0;
+      --text-dim: #64647a;
+      --text-bright: #f0f0f5;
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ── Animated Background Blobs ── */
+    .bg-blobs {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(110px);
+      animation: blobFloat 20s ease-in-out infinite;
+    }
+
+    .blob-1 {
+      width: 600px;
+      height: 600px;
+      background: var(--accent);
+      opacity: 0.12;
+      top: -15%;
+      left: -15%;
+      animation-delay: 0s;
+    }
+
+    .blob-2 {
+      width: 500px;
+      height: 500px;
+      background: var(--accent2);
+      opacity: 0.1;
+      bottom: -15%;
+      right: -15%;
+      animation-delay: -8s;
+      animation-duration: 26s;
+    }
+
+    .blob-3 {
+      width: 350px;
+      height: 350px;
+      background: #ff6b9d;
+      opacity: 0.06;
+      top: 40%;
+      left: 40%;
+      animation-delay: -15s;
+      animation-duration: 32s;
+    }
+
+    @keyframes blobFloat {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      25% {
+        transform: translate(100px, -70px) scale(1.1);
+      }
+
+      50% {
+        transform: translate(-50px, 80px) scale(0.92);
+      }
+
+      75% {
+        transform: translate(70px, 110px) scale(1.05);
+      }
+    }
+
+    /* ── Grid lines overlay ── */
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(124, 106, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 106, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    }
+
+    /* ── Scanlines ── */
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(to bottom, transparent 50%, rgba(124, 106, 255, 0.015) 50%);
+      background-size: 100% 4px;
+      animation: scanlines 12s linear infinite;
+    }
+
+    @keyframes scanlines {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: 0 100px;
+      }
+    }
+
+    /* ── Floating particles (CSS only) ── */
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleFloat linear infinite;
+    }
+
+    .particle:nth-child(1) {
+      left: 10%;
+      animation-duration: 12s;
+      animation-delay: 0s;
+      width: 3px;
+      height: 3px;
+    }
+
+    .particle:nth-child(2) {
+      left: 20%;
+      animation-duration: 16s;
+      animation-delay: -3s;
+      background: var(--accent2);
+    }
+
+    .particle:nth-child(3) {
+      left: 35%;
+      animation-duration: 10s;
+      animation-delay: -6s;
+      width: 1px;
+      height: 1px;
+    }
+
+    .particle:nth-child(4) {
+      left: 50%;
+      animation-duration: 14s;
+      animation-delay: -2s;
+      background: var(--accent2);
+      width: 3px;
+      height: 3px;
+    }
+
+    .particle:nth-child(5) {
+      left: 65%;
+      animation-duration: 11s;
+      animation-delay: -9s;
+    }
+
+    .particle:nth-child(6) {
+      left: 78%;
+      animation-duration: 18s;
+      animation-delay: -4s;
+      background: var(--accent2);
+      width: 1px;
+      height: 1px;
+    }
+
+    .particle:nth-child(7) {
+      left: 88%;
+      animation-duration: 13s;
+      animation-delay: -7s;
+    }
+
+    .particle:nth-child(8) {
+      left: 42%;
+      animation-duration: 15s;
+      animation-delay: -11s;
+      background: #ff6b9d;
+      width: 2px;
+      height: 2px;
+    }
+
+    @keyframes particleFloat {
+      0% {
+        transform: translateY(110vh) translateX(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.6;
+      }
+
+      90% {
+        opacity: 0.4;
+      }
+
+      100% {
+        transform: translateY(-10vh) translateX(30px);
+        opacity: 0;
+      }
+    }
+
+    /* ── Main content ── */
+    .container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 2rem;
+      max-width: 700px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* ── Top nav ── */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(6, 6, 10, 0.6);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-brand {
+      font-family: 'Mr De Haviland', cursive;
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 0 0 20px var(--accent-glow);
+      transition: text-shadow 0.3s;
+    }
+
+    .nav-brand:hover {
+      text-shadow: 0 0 30px var(--accent-glow), 0 0 10px var(--accent);
+    }
+
+    .nav-home {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--glass-border);
+      border-radius: 100px;
+      transition: all 0.3s var(--ease);
+    }
+
+    .nav-home:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    /* ── 404 Glitch Number ── */
+    .error-code {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: clamp(8rem, 22vw, 16rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: transparent;
+      position: relative;
+      margin-bottom: -1rem;
+      user-select: none;
+
+      /* Base gradient text */
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      /* Glow */
+      filter: drop-shadow(0 0 40px var(--accent-glow));
+      animation: glitch-base 6s ease-in-out infinite;
+    }
+
+    /* Glitch layers */
+    .error-code::before,
+    .error-code::after {
+      content: '404';
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .error-code::before {
+      color: var(--accent2);
+      animation: glitch-before 6s ease-in-out infinite;
+      clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    }
+
+    .error-code::after {
+      color: var(--accent);
+      animation: glitch-after 6s ease-in-out infinite;
+      clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
+    }
+
+    @keyframes glitch-base {
+
+      0%,
+      90%,
+      100% {
+        transform: translate(0);
+      }
+
+      92% {
+        transform: translate(-3px, 1px);
+      }
+
+      94% {
+        transform: translate(3px, -1px);
+      }
+
+      96% {
+        transform: translate(-2px, 2px);
+      }
+
+      98% {
+        transform: translate(2px, 0);
+      }
+    }
+
+    @keyframes glitch-before {
+
+      0%,
+      90%,
+      100% {
+        transform: translate(0);
+        opacity: 0;
+      }
+
+      92% {
+        transform: translate(4px, -2px);
+        opacity: 0.8;
+        filter: hue-rotate(180deg);
+      }
+
+      94% {
+        transform: translate(-4px, 2px);
+        opacity: 0.6;
+      }
+
+      96% {
+        transform: translate(3px, -1px);
+        opacity: 0.8;
+      }
+
+      98% {
+        transform: translate(0);
+        opacity: 0;
+      }
+    }
+
+    @keyframes glitch-after {
+
+      0%,
+      90%,
+      100% {
+        transform: translate(0);
+        opacity: 0;
+      }
+
+      92% {
+        transform: translate(-4px, 2px);
+        opacity: 0.7;
+        filter: hue-rotate(-90deg);
+      }
+
+      94% {
+        transform: translate(4px, -2px);
+        opacity: 0.5;
+      }
+
+      96% {
+        transform: translate(-2px, 1px);
+        opacity: 0.7;
+      }
+
+      98% {
+        transform: translate(0);
+        opacity: 0;
+      }
+    }
+
+    /* ── Terminal-style error message ── */
+    .terminal-box {
+      background: rgba(10, 10, 20, 0.85);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 0;
+      width: 100%;
+      max-width: 520px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px var(--accent-glow);
+      margin: 2rem 0;
+      animation: fadeSlideUp 0.8s 0.3s var(--ease) both;
+    }
+
+    .terminal-header {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.7rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .t-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .red {
+      background: #ff5f56;
+    }
+
+    .yellow {
+      background: #ffbd2e;
+    }
+
+    .green-dot {
+      background: #27c93f;
+    }
+
+    .t-title {
+      font-size: 0.72rem;
+      color: #666;
+      margin-left: 0.4rem;
+      font-family: 'Courier New', monospace;
+    }
+
+    .terminal-body {
+      padding: 1.4rem 1.6rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.88rem;
+      text-align: left;
+      line-height: 1.8;
+    }
+
+    .t-line {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .t-prompt {
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    .t-cmd {
+      color: #e2e8f0;
+    }
+
+    .t-output {
+      color: var(--text-dim);
+      padding-left: 0;
+    }
+
+    .t-error {
+      color: #ff5f56;
+    }
+
+    .t-warn {
+      color: #ffbd2e;
+    }
+
+    .t-ok {
+      color: var(--green);
+    }
+
+    .t-accent {
+      color: var(--accent);
+    }
+
+    .t-cursor-inline {
+      display: inline-block;
+      width: 8px;
+      height: 14px;
+      background: var(--accent);
+      vertical-align: middle;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* ── Subtitle ── */
+    .error-title {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 600;
+      color: var(--text-bright);
+      letter-spacing: -0.02em;
+      animation: fadeSlideUp 0.8s 0.1s var(--ease) both;
+    }
+
+    .error-sub {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      max-width: 400px;
+      line-height: 1.7;
+      animation: fadeSlideUp 0.8s 0.2s var(--ease) both;
+    }
+
+    /* ── CTA Buttons ── */
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeSlideUp 0.8s 0.5s var(--ease) both;
+      margin-top: 0.5rem;
+    }
+
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2.2rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 100px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s var(--ease);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-home:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 35px var(--accent-glow), 0 0 60px rgba(124, 106, 255, 0.15);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--text-dim);
+      border-radius: 100px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s var(--ease);
+      border: 1px solid var(--glass-border);
+      cursor: pointer;
+    }
+
+    .btn-ghost:hover {
+      color: var(--accent2);
+      border-color: var(--accent2);
+      background: rgba(0, 212, 255, 0.07);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--accent2-glow);
+    }
+
+    /* ── Status badge ── */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--green);
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.15);
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      animation: fadeSlideUp 0.8s 0s var(--ease) both;
+      margin-bottom: 1.5rem;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.4);
+      }
+
+      50% {
+        opacity: 0.6;
+        box-shadow: 0 0 0 4px rgba(52, 211, 153, 0);
+      }
+    }
+
+    /* ── Floating orbit icons (same as hero) ── */
+    .orbit-container {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .float-icon {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      animation: floatDrift linear infinite;
+      opacity: 0;
+    }
+
+    .float-icon:nth-child(1) {
+      top: 15%;
+      left: 8%;
+      animation-duration: 18s;
+      animation-delay: 0s;
+    }
+
+    .float-icon:nth-child(2) {
+      top: 70%;
+      left: 5%;
+      animation-duration: 22s;
+      animation-delay: -5s;
+    }
+
+    .float-icon:nth-child(3) {
+      top: 25%;
+      right: 6%;
+      animation-duration: 16s;
+      animation-delay: -8s;
+    }
+
+    .float-icon:nth-child(4) {
+      top: 60%;
+      right: 9%;
+      animation-duration: 20s;
+      animation-delay: -3s;
+    }
+
+    .float-icon:nth-child(5) {
+      top: 85%;
+      left: 20%;
+      animation-duration: 14s;
+      animation-delay: -10s;
+    }
+
+    .float-icon:nth-child(6) {
+      top: 10%;
+      right: 22%;
+      animation-duration: 24s;
+      animation-delay: -14s;
+    }
+
+    @keyframes floatDrift {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: translateY(-30px) rotate(8deg);
+        opacity: 0.4;
+      }
+
+      90% {
+        opacity: 0.4;
+      }
+
+      100% {
+        transform: translateY(-60px) rotate(-5deg);
+        opacity: 0;
+      }
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── Footer ── */
+    .page-footer {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      opacity: 0.5;
+      z-index: 10;
+      animation: fadeSlideUp 1s 0.8s var(--ease) both;
+    }
+
+    /* ── Custom scrollbar ── */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+      border-radius: 10px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .error-code {
+        font-size: clamp(6rem, 28vw, 8rem);
+      }
+
+      .terminal-body {
+        font-size: 0.78rem;
+        padding: 1rem 1.2rem;
+      }
+
+      .cta-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-home,
+      .btn-ghost {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+
+      .float-icon {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Backgrounds -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+  <div class="scanlines"></div>
+
+  <!-- Floating particles -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- Floating tech icons -->
+  <div class="orbit-container">
+    <div class="float-icon"><i class="fab fa-python" style="color:#4B8BBE"></i></div>
+    <div class="float-icon"><i class="fab fa-aws" style="color:#FF9900"></i></div>
+    <div class="float-icon"><i class="fab fa-docker" style="color:#0db7ed"></i></div>
+    <div class="float-icon"><i class="fab fa-react" style="color:#61dafb"></i></div>
+    <div class="float-icon"><i class="fab fa-js" style="color:#F7DF1E"></i></div>
+    <div class="float-icon"><i class="fab fa-git-alt" style="color:#f34f29"></i></div>
+  </div>
+
+  <!-- Top Nav -->
+  <nav class="top-nav">
+    <a href="/" class="nav-brand">Arpit Sehrawat</a>
+    <a href="/" class="nav-home">
+      <i class="fas fa-arrow-left" style="font-size:0.75rem"></i>
+      Back to Portfolio
+    </a>
+  </nav>
+
+  <!-- Main -->
+  <main class="container">
+
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      Error 404 · Page Not Found
+    </div>
+
+    <!-- Glitch 404 -->
+    <div class="error-code" aria-label="404">404</div>
+
+    <!-- Terminal box -->
+    <div class="terminal-box">
+      <div class="terminal-header">
+        <span class="t-dot red"></span>
+        <span class="t-dot yellow"></span>
+        <span class="t-dot green-dot"></span>
+        <span class="t-title">arpit@cloud:~ — bash</span>
+      </div>
+      <div class="terminal-body">
+        <div class="t-line">
+          <span class="t-prompt">$</span>
+          <span class="t-cmd">curl <span class="t-accent">https://arpit.dev<span id="path-display"></span></span></span>
+        </div>
+        <div class="t-line" style="margin-top:0.4rem">
+          <span class="t-output t-error">→ HTTP 404: Resource not found</span>
+        </div>
+        <div class="t-line">
+          <span class="t-output t-warn">→ This page has drifted into the void.</span>
+        </div>
+        <div class="t-line">
+          <span class="t-output t-ok">→ Try navigating back to a known route.</span>
+        </div>
+        <div class="t-line" style="margin-top:0.6rem">
+          <span class="t-prompt">$</span>
+          <span class="t-cmd">cd / <span class="t-cursor-inline"></span></span>
+        </div>
+      </div>
+    </div>
+
+    <p class="error-sub" style="margin-bottom: 1.8rem;">
+      Looks like this URL got lost somewhere in the cloud. Let's get you back on the right path.
+    </p>
+
+    <div class="cta-group">
+      <a href="/" class="btn-home">
+        <i class="fas fa-house"></i>
+        Back to Home
+      </a>
+      <a href="/#work" class="btn-ghost">
+        <i class="fas fa-code"></i>
+        View Projects
+      </a>
+      <a href="mailto:arpitsehrawat2030@gmail.com" class="btn-ghost">
+        <i class="fas fa-envelope"></i>
+        Contact Me
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    © 2025 Arpit Sehrawat · Cloud & Backend Developer
+  </footer>
+
+  <script>
+    // Show the current wrong URL path in terminal
+    const pathDisplay = document.getElementById('path-display');
+    if (pathDisplay) {
+      const p = window.location.pathname;
+      pathDisplay.textContent = p.length > 28 ? p.slice(0, 28) + '…' : p;
+    }
+  </script>
+</body>
+
+</html>
