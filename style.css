@@ -226,11 +226,22 @@ nav {
 .nav-social-icons a:hover { color: var(--accent); }
 
 .resume-pill {
-  padding: 0.6rem 1.6rem; background: #333; color: #fff;
-  border-radius: 4px; font-weight: 600; font-size: 0.8rem;
-  transition: all 0.3s;
+  padding: 0.6rem 1.8rem; 
+  background: linear-gradient(135deg, var(--accent), var(--accent2)); 
+  color: #fff;
+  border-radius: 100px; 
+  font-weight: 700; 
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  transition: all 0.4s var(--ease);
+  box-shadow: 0 4px 15px var(--accent-glow);
+  border: 1px solid rgba(255,255,255,0.1);
 }
-.resume-pill:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 10px 20px var(--accent-glow); }
+.resume-pill:hover { 
+  transform: translateY(-3px) scale(1.05); 
+  box-shadow: 0 12px 30px var(--accent-glow), 0 0 20px var(--accent); 
+  filter: brightness(1.1);
+}
 
 /* ── Tech Marquee ── */
 .tech-marquee-container {
