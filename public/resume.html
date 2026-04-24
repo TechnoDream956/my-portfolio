@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume — Arpit Sehrawat</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     :root {
-      --header-bg: #1e1b4b; /* Deep Navy */
-      --accent: #818cf8;    /* Soft Indigo */
+      --header-bg: #1e1b4b;
+      /* Deep Navy */
+      --accent: #818cf8;
+      /* Soft Indigo */
       --text-main: #1f2937;
       --text-muted: #6b7280;
       --border: #e5e7eb;
@@ -18,17 +23,21 @@
 
     body {
       background: #cbd5e1;
-      margin: 0; padding: 40px 0;
+      margin: 0;
+      padding: 40px 0;
       font-family: 'Inter', sans-serif;
-      display: flex; flex-direction: column; align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .resume-container {
       width: 210mm;
       min-height: 297mm;
       background: white;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.2);
-      display: flex; flex-direction: column;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
       position: relative;
       overflow: hidden;
     }
@@ -38,26 +47,47 @@
       background: var(--header-bg);
       color: white;
       padding: 60px 80px;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .header-text { flex: 1; }
+
+    .header-text {
+      flex: 1;
+    }
+
     .header-text h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.5rem; margin: 0; line-height: 1;
+      font-size: 3.5rem;
+      margin: 0;
+      line-height: 1;
       letter-spacing: -1px;
     }
+
     .header-text p {
-      font-family: 'Outfit'; font-size: 1.2rem;
-      color: var(--accent); font-weight: 600;
-      text-transform: uppercase; letter-spacing: 4px;
+      font-family: 'Outfit';
+      font-size: 1.2rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 4px;
       margin: 15px 0 0;
     }
+
     .header-photo {
-      width: 180px; height: 180px;
-      border-radius: 50%; border: 6px solid rgba(255,255,255,0.1);
-      overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 6px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
-    .header-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .header-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     /* ── Body Layout ── */
     .resume-body {
@@ -69,92 +99,223 @@
     /* ── Left Column (Sidebar) ── */
     .sidebar {
       background: var(--sidebar-bg);
-      padding: 40px 50px;
+      padding: 30px 35px;
       border-right: 1px solid var(--border);
     }
-    .sidebar-section { margin-bottom: 40px; }
+
+    .sidebar-section {
+      margin-bottom: 28px;
+    }
+
     .sidebar-title {
-      font-family: 'Outfit'; font-weight: 800; font-size: 0.85rem;
-      text-transform: uppercase; letter-spacing: 2px;
-      color: var(--header-bg); margin-bottom: 20px;
-      display: flex; align-items: center; gap: 10px;
+      font-family: 'Outfit';
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--header-bg);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
+
     .sidebar-title::after {
-      content: ''; flex: 1; height: 1px; background: var(--border);
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
 
-    .contact-info { font-size: 0.85rem; color: var(--text-main); }
-    .contact-info div { margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
-    .contact-info i { color: var(--accent); width: 16px; font-size: 1rem; }
+    .contact-info {
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
 
-    .skill-item { margin-bottom: 20px; }
+    .contact-info div {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contact-info i {
+      color: var(--accent);
+      width: 16px;
+      font-size: 1rem;
+    }
+
+    .skill-item {
+      margin-bottom: 20px;
+    }
+
     .skill-label {
-      display: flex; justify-content: space-between;
-      font-size: 0.85rem; font-weight: 600; margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
     }
-    .skill-dots { display: flex; gap: 5px; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd; }
-    .dot.filled { background: var(--accent); }
+
+    .skill-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ddd;
+    }
+
+    .dot.filled {
+      background: var(--accent);
+    }
 
     /* ── Right Column (Main) ── */
     .main-content {
       padding: 50px 70px;
     }
-    .section { margin-bottom: 45px; }
-    .section-title {
-      font-family: 'Outfit'; font-weight: 800; font-size: 1.1rem;
-      text-transform: uppercase; letter-spacing: 2px;
-      color: var(--header-bg); margin-bottom: 25px;
-      border-left: 4px solid var(--accent); padding-left: 15px;
+
+    .section {
+      margin-bottom: 45px;
     }
 
-    .experience-item { margin-bottom: 30px; position: relative; }
+    .section-title {
+      font-family: 'Outfit';
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--header-bg);
+      margin-bottom: 25px;
+      border-left: 4px solid var(--accent);
+      padding-left: 15px;
+    }
+
+    .experience-item {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
     .exp-header {
-      display: flex; justify-content: space-between; align-items: baseline;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
       margin-bottom: 5px;
     }
-    .exp-header h3 { font-size: 1.15rem; margin: 0; color: var(--text-main); }
-    .exp-date { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
-    .exp-sub { font-size: 0.95rem; color: var(--accent); font-weight: 700; margin-bottom: 12px; }
-    
-    .exp-list { margin: 10px 0; padding-left: 18px; list-style: none; }
-    .exp-list li {
-      font-size: 0.95rem; color: var(--text-muted); margin-bottom: 8px;
-      position: relative; line-height: 1.5;
+
+    .exp-header h3 {
+      font-size: 1.15rem;
+      margin: 0;
+      color: var(--text-main);
     }
+
+    .exp-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .exp-sub {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .exp-list {
+      margin: 10px 0;
+      padding-left: 18px;
+      list-style: none;
+    }
+
+    .exp-list li {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      position: relative;
+      line-height: 1.5;
+    }
+
     .exp-list li::before {
-      content: '→'; position: absolute; left: -22px; color: var(--accent);
+      content: '→';
+      position: absolute;
+      left: -22px;
+      color: var(--accent);
     }
 
     .courses-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-      font-size: 0.85rem; color: var(--text-muted);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
-    .course-item { display: flex; align-items: center; gap: 8px; }
-    .course-item i { font-size: 0.5rem; color: var(--accent); }
+
+    .course-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .course-item i {
+      font-size: 0.5rem;
+      color: var(--accent);
+    }
 
     /* ── Controls ── */
     .controls {
-      position: fixed; top: 40px; right: 40px;
-      display: flex; flex-direction: column; gap: 10px;
+      position: fixed;
+      top: 40px;
+      right: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
+
     .btn {
-      padding: 15px 30px; background: white; color: var(--header-bg);
-      border: 1px solid var(--border); border-radius: 8px;
-      font-family: 'Outfit'; font-weight: 700; cursor: pointer;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 15px 30px;
+      background: white;
+      color: var(--header-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Outfit';
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       transition: all 0.3s;
     }
-    .btn-primary { background: var(--header-bg); color: white; border: none; }
-    .btn:hover { transform: scale(1.05); }
+
+    .btn-primary {
+      background: var(--header-bg);
+      color: white;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
 
     @media print {
-      body { padding: 0; background: white; }
-      .resume-container { box-shadow: none; width: 100%; }
-      .controls { display: none; }
+      body {
+        padding: 0;
+        background: white;
+      }
+
+      .resume-container {
+        box-shadow: none;
+        width: 100%;
+      }
+
+      .controls {
+        display: none;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <div class="controls">
@@ -182,53 +343,130 @@
             <div><i class="fas fa-phone"></i> +91 84475 96699</div>
             <div><i class="fas fa-envelope"></i> arpitsehrawat2030@gmail.com</div>
             <div><i class="fas fa-map-marker-alt"></i> Greater Noida, IN</div>
-            <div><i class="fab fa-linkedin"></i> linkedin.com/arpit</div>
-            <div><i class="fab fa-github"></i> TechnoDream956</div>
+            <div><i class="fab fa-linkedin"></i> linkedin.com/in/arpit-sehrawat-bb6a09323</div>
+            <div><i class="fab fa-github"></i> github.com/TechnoDream956</div>
           </div>
         </div>
 
         <div class="sidebar-section">
-          <div class="sidebar-title">Expertise</div>
-          
+          <div class="sidebar-title">Cloud & DevOps</div>
+
           <div class="skill-item">
-            <div class="skill-label"><span>Cloud (AWS)</span></div>
+            <div class="skill-label"><span>AWS (EC2, S3, Lambda)</span></div>
             <div class="skill-dots">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot"></span><span class="dot"></span>
             </div>
           </div>
 
           <div class="skill-item">
-            <div class="skill-label"><span>Python / Flask</span></div>
+            <div class="skill-label"><span>Docker</span></div>
             <div class="skill-dots">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot"></span><span class="dot"></span>
             </div>
           </div>
 
           <div class="skill-item">
-            <div class="skill-label"><span>JavaScript / React</span></div>
+            <div class="skill-label"><span>Linux / Bash</span></div>
             <div class="skill-dots">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot"></span><span class="dot"></span>
             </div>
           </div>
 
           <div class="skill-item">
-            <div class="skill-label"><span>Linux / Docker</span></div>
+            <div class="skill-label"><span>Git & GitHub</span></div>
             <div class="skill-dots">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-title">Languages</div>
+
+          <div class="skill-item">
+            <div class="skill-label"><span>Python</span></div>
+            <div class="skill-dots">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot filled"></span><span class="dot"></span>
             </div>
           </div>
 
           <div class="skill-item">
-            <div class="skill-label"><span>SQL / MongoDB</span></div>
+            <div class="skill-label"><span>Java</span></div>
             <div class="skill-dots">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot"></span><span class="dot"></span>
             </div>
           </div>
 
           <div class="skill-item">
-            <div class="skill-label"><span>Java / C++</span></div>
+            <div class="skill-label"><span>JavaScript</span></div>
             <div class="skill-dots">
-              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-label"><span>C / C++</span></div>
+            <div class="skill-dots">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-label"><span>TypeScript</span></div>
+            <div class="skill-dots">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span
+                class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label"><span>SQL</span></div>
+            <div class="skill-dots">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-title">Frameworks & Tools</div>
+
+          <div class="skill-item">
+            <div class="skill-label"><span>Flask</span></div>
+            <div class="skill-dots">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-label"><span>React.js</span></div>
+            <div class="skill-dots">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-label"><span>REST APIs</span></div>
+            <div class="skill-dots">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot filled"></span><span class="dot"></span>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-label"><span>Postman</span></div>
+            <div class="skill-dots">
+              <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot"></span><span class="dot"></span>
             </div>
           </div>
         </div>
@@ -236,101 +474,160 @@
         <div class="sidebar-section">
           <div class="sidebar-title">Soft Skills</div>
           <div class="contact-info">
-            <div><i class="fas fa-check-circle"></i> Leadership</div>
+            <div><i class="fas fa-check-circle"></i> Team Leadership</div>
             <div><i class="fas fa-check-circle"></i> Problem Solving</div>
-            <div><i class="fas fa-check-circle"></i> Technical Writing</div>
-            <div><i class="fas fa-check-circle"></i> Team Agility</div>
+            <div><i class="fas fa-check-circle"></i> Communication</div>
+            <div><i class="fas fa-check-circle"></i> Agile Workflow</div>
             <div><i class="fas fa-check-circle"></i> Critical Thinking</div>
           </div>
         </div>
 
         <div class="sidebar-section">
-          <div class="sidebar-title">Languages</div>
-          <div class="skill-item">
-            <div class="skill-label">English (Full Prof.)</div>
-            <div class="skill-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
-          </div>
+          <div class="sidebar-title">Spoken Languages</div>
           <div class="skill-item">
             <div class="skill-label">Hindi (Native)</div>
-            <div class="skill-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+            <div class="skill-dots"><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-label">English (Professional)</div>
+            <div class="skill-dots"><span class="dot filled"></span><span class="dot filled"></span><span
+                class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
           </div>
         </div>
       </aside>
 
       <!-- Main Content -->
       <main class="main-content">
-        
+
         <div class="section">
           <div class="section-title">Summary</div>
-          <p style="font-size: 1rem; line-height: 1.6; color: var(--text-muted); margin: 0;">
-            Strategic and detail-oriented Computer Science student at Bennett University with a deep specialization in Cloud Infrastructure and Full-Stack Engineering. Proven expertise in architecting high-performance real-time applications and optimizing backend transaction security. AWS Academy Graduate with a passion for building scalable, cloud-native ecosystems that solve complex institutional challenges.
+          <p style="font-size: 0.95rem; line-height: 1.65; color: var(--text-muted); margin: 0;">
+            Second-year B.Tech CSE student at Bennett University with a focus on Cloud Computing and Full-Stack
+            Development. I enjoy building things that solve real problems — from a live ordering system for our campus
+            canteen to exploring cloud-native architecture on AWS. AWS Academy Graduate, currently seeking an internship
+            where I can contribute meaningfully and grow alongside experienced engineers.
           </p>
         </div>
 
         <div class="section">
           <div class="section-title">Education</div>
           <div class="experience-item">
-            <div class="education-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px;">
+            <div class="education-header"
+              style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px;">
               <div>
-                <h3 style="margin: 0; font-family: var(--font-heading); font-size: 1.1rem; color: var(--text-dark);">Bennett University</h3>
+                <h3 style="margin: 0; font-family: var(--font-heading); font-size: 1.1rem; color: var(--text-dark);">
+                  Bennett University</h3>
                 <div class="exp-sub" style="margin-top: 4px;">B.Tech in Computer Science & Engineering</div>
               </div>
               <div style="display: flex; align-items: center; gap: 8px;">
                 <i class="fas fa-university" style="font-size: 1.5rem; color: #4a4a4a;"></i>
                 <div style="display: flex; flex-direction: column; line-height: 1; text-align: right;">
-                  <span style="font-family: var(--font-heading); font-weight: 900; font-size: 0.8rem; color: #1a1a1a;">BENNETT</span>
-                  <span style="font-family: var(--font-heading); font-weight: 700; font-size: 0.55rem; color: #666; letter-spacing: 1px;">UNIVERSITY</span>
+                  <span
+                    style="font-family: var(--font-heading); font-weight: 900; font-size: 0.8rem; color: #1a1a1a;">BENNETT</span>
+                  <span
+                    style="font-family: var(--font-heading); font-weight: 700; font-size: 0.55rem; color: #666; letter-spacing: 1px;">UNIVERSITY</span>
                 </div>
               </div>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span class="exp-date">Expected 2028 | Times Group Initiative</span>
+              <span class="exp-date">2024 – 2028 (Expected) | Times Group Initiative</span>
             </div>
-            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 8px 0 0 0;">Currently maintaining a CGPA of 8.0/10. Active member of the University Tech Council and Open Source Community.</p>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 8px 0 0 0;">CGPA: 8.0 / 10 &nbsp;·&nbsp;
+              Active member of the University Tech Council.</p>
           </div>
         </div>
 
         <div class="section">
           <div class="section-title">Key Projects</div>
-          
+
           <div class="experience-item">
             <div class="exp-header">
-              <h3>Smart Canteen Infrastructure</h3>
-              <span class="exp-date">Institutional Project</span>
+              <h3>Smart Canteen System</h3>
+              <span class="exp-date">2023 – 2024</span>
             </div>
-            <div class="exp-sub">Lead Full-Stack Engineer</div>
+            <div class="exp-sub">Lead Full-Stack Engineer &nbsp;|&nbsp; HTML/CSS/JS · Python Flask · REST API · Vercel ·
+              Render</div>
             <ul class="exp-list">
-              <li>Engineered a campus-wide real-time ordering platform serving 1000+ daily active users.</li>
-              <li>Integrated secure WebSocket-based live order tracking and OTP verification for transaction integrity.</li>
-              <li>Optimized database schema and indexing, resulting in a 40% reduction in query latency.</li>
-              <li>Reduced peak-hour service wait times by 30% through streamlined digital checkout workflows.</li>
+              <li>Built a full-stack ordering platform for the university canteen with real-time order tracking via
+                WebSockets.</li>
+              <li>Implemented OTP-based authentication for secure student login and transaction integrity.</li>
+              <li>Created a staff dashboard to manage incoming orders, status updates, and daily reports.</li>
             </ul>
           </div>
 
           <div class="experience-item">
             <div class="exp-header">
-              <h3>Vital Arogya Guardian (AI Engine)</h3>
-              <span class="exp-date">Global Health Hackathon</span>
+              <h3>Vital Arogya Guardian</h3>
+              <span class="exp-date">2024</span>
             </div>
-            <div class="exp-sub">Backend & Cloud Architect</div>
+            <div class="exp-sub">Developer &nbsp;|&nbsp; TypeScript · Web APIs · Health Data</div>
             <ul class="exp-list">
-              <li>Architected a predictive health diagnostic engine using Flask, Scikit-Learn, and AWS Lambda.</li>
-              <li>Engineered a multi-modal data pipeline to process and analyze diverse medical data streams.</li>
-              <li>Achieved 99.9% uptime by deploying on a serverless, highly-available cloud infrastructure.</li>
-              <li>Achieved a 95%+ accuracy rate in preliminary health risk assessments for rural diagnostics.</li>
+              <li>Developed a health monitoring application to track vitals and provide basic health insights.</li>
+              <li>Used TypeScript for type safety and a cleaner, more maintainable codebase.</li>
             </ul>
           </div>
 
           <div class="experience-item">
             <div class="exp-header">
               <h3>Campus Tech Initiative</h3>
-              <span class="exp-date">Student Initiative</span>
+              <span class="exp-date">2024 – Present</span>
             </div>
             <div class="exp-sub">Founder & Lead Developer</div>
             <ul class="exp-list">
-              <li>Founded a student-led initiative to build technical tools for the university ecosystem.</li>
-              <li>Led a team of 4 to develop an internal inventory management system for campus labs.</li>
+              <li>Founded a student-led group to build internal tools for the university ecosystem.</li>
+              <li>Led a team of 4 to deliver an inventory management system for campus labs.</li>
             </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <h3>AI Chatbot Interface</h3>
+              <span class="exp-date">2024</span>
+            </div>
+            <div class="exp-sub">Developer &nbsp;|&nbsp; HTML · CSS · JavaScript · AI APIs</div>
+            <ul class="exp-list">
+              <li>Built an interactive chatbot UI that handles natural language queries via AI API integration.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Certifications</div>
+          <div class="experience-item" style="margin-bottom: 12px;">
+            <div class="exp-header">
+              <h3>AWS Academy — Cloud Architecting</h3><span class="exp-date">2026</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">AWS Academy Graduate badge · Covered VPC,
+              EC2, S3, IAM, and cloud design patterns.</p>
+          </div>
+          <div class="experience-item" style="margin-bottom: 12px;">
+            <div class="exp-header">
+              <h3>AWS Academy — Data Engineering</h3><span class="exp-date">2026</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">AWS Academy Graduate badge · Covered data
+              pipelines, Glue, Athena, and Redshift.</p>
+          </div>
+          <div class="experience-item" style="margin-bottom: 12px;">
+            <div class="exp-header">
+              <h3>Cloud Security Foundations — AWS</h3><span class="exp-date">2026</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">Security best practices, IAM policies,
+              and infrastructure hardening on AWS.</p>
+          </div>
+          <div class="experience-item" style="margin-bottom: 12px;">
+            <div class="exp-header">
+              <h3>Python — Infosys Springboard</h3><span class="exp-date">2024</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">Python fundamentals, OOP, and backend
+              scripting.</p>
+          </div>
+          <div class="experience-item">
+            <div class="exp-header">
+              <h3>Java Programming & DSA</h3><span class="exp-date">2024</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">Advanced Java concepts and Data
+              Structures & Algorithms certification.</p>
           </div>
         </div>
 
@@ -348,25 +645,10 @@
           </div>
         </div>
 
-        <div class="section">
-          <div class="section-title">Certifications & Honors</div>
-          <div class="experience-item" style="margin-bottom: 12px;">
-            <div class="exp-header"><h3>AWS Academy Graduate</h3></div>
-            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">Specialized in Cloud Architecting, Data Engineering, and Infrastructure Automation.</p>
-          </div>
-          <div class="experience-item" style="margin-bottom: 12px;">
-            <div class="exp-header"><h3>Infosys Springboard Python</h3></div>
-            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">Professional certification in Python Development and Backend Logic.</p>
-          </div>
-          <div class="experience-item">
-            <div class="exp-header"><h3>Medium Technical Author</h3></div>
-            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">Publishing insights on Cloud Native trends and AI infrastructure (500+ reads).</p>
-          </div>
-        </div>
-
       </main>
     </div>
   </div>
 
 </body>
+
 </html>
