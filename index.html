@@ -56,8 +56,9 @@
       </div>
       <div class="nav-right">
         <div class="nav-social-icons">
-          <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/arpit-sehrawat-cloud/" target="_blank" title="LinkedIn"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/TechnoDream956" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
         </div>
         <a href="/resume.html" class="resume-pill">Resume</a>
       </div>
@@ -556,6 +557,21 @@
         <a href="mailto:arpitsehrawat2030@gmail.com" class="contact-btn">
           arpitsehrawat2030@gmail.com
         </a>
+        <div class="contact-socials">
+          <a href="https://www.linkedin.com/in/arpit-sehrawat-cloud/" target="_blank" class="social-link"
+            title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/TechnoDream956" target="_blank" class="social-link" title="GitHub">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
+          <a href="https://medium.com/@arpitsehrawat" target="_blank" class="social-link" title="Medium">
+            <i class="fab fa-medium"></i>
+            <span>Medium</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -563,10 +579,22 @@
 
   <footer>
     <div class="footer-inner">
-      <p>&copy; 2024 Arpit Sehrawat. Built with passion & Cloud focus.</p>
+      <p>&copy; 2025 Arpit Sehrawat. Built with passion & Cloud focus.</p>
     </div>
   </footer>
+  <script src="/main.js" type="module"></script>
   <script src="enhancements.js"></script>
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  <script>
+    const btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 400);
+    });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
 </body>
 
 </html>

@@ -1,189 +1,138 @@
-/* enhancements.js — Arpit portfolio additions */
+/* enhancements.js — Arpit portfolio additions (fixed & improved v2) */
 (function () {
   'use strict';
 
   /* ── 1. STYLES ─────────────────────────────────────── */
   const css = `
-    .eh-hidden { opacity: 0; transform: translateY(20px); }
+    /* Scroll reveal */
+    .eh-hidden { opacity: 0; transform: translateY(24px); }
     .eh-shown  {
       opacity: 1 !important; transform: none !important;
       transition: opacity .65s cubic-bezier(.22,1,.36,1),
                   transform .65s cubic-bezier(.22,1,.36,1);
     }
-    .eh-d1 { transition-delay:.05s!important }
-    .eh-d2 { transition-delay:.12s!important }
-    .eh-d3 { transition-delay:.19s!important }
+    .eh-d1 { transition-delay:.06s!important }
+    .eh-d2 { transition-delay:.14s!important }
+    .eh-d3 { transition-delay:.22s!important }
+    .eh-d4 { transition-delay:.30s!important }
 
-    /* Timeline */
-    .eh-timeline { position:relative; padding-top:4px; }
-    .eh-timeline::before {
-      content:''; position:absolute;
-      left:0; top:14px; bottom:40px; width:1.5px;
-      background: linear-gradient(to bottom,
-        rgba(123,108,255,.9), rgba(123,108,255,.25) 70%, transparent);
-      border-radius:4px;
-    }
-    .eh-entry { position:relative; padding-left:26px; padding-bottom:40px; }
-    .eh-entry:last-child { padding-bottom:0; }
-    .eh-dot {
-      position:absolute; left:-4.5px; top:5px;
-      width:10px; height:10px; border-radius:50%;
-      background:#7b6cff; border:2px solid #0b0f1e;
-      box-shadow: 0 0 0 3px rgba(123,108,255,.2);
-      transition: box-shadow .3s, background .3s;
-      display:block;
-    }
-    .eh-entry:hover .eh-dot {
-      background:#a49cff;
-      box-shadow: 0 0 0 8px rgba(123,108,255,.12);
-    }
+    /* ── Timeline item hover ── */
+    .timeline-item { transition: transform .3s ease; }
+    .timeline-item:hover { transform: translateX(5px); }
 
-    /* Skill li */
-    .eh-skill-li { position:relative; cursor:default; }
-    .eh-skill-li::after {
-      content:''; position:absolute;
-      left:0; bottom:0; height:1px; width:0;
-      background:linear-gradient(90deg,rgba(123,108,255,.7),transparent);
+    /* ── Skill li hover underline ── */
+    .skill-group li {
+      position: relative;
+      cursor: default;
+      transition: color .2s, padding-left .2s;
+    }
+    .skill-group li::before {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -2px;
+      height: 1px; width: 0;
+      background: linear-gradient(90deg, rgba(124,106,255,.8), transparent);
       transition: width .35s cubic-bezier(.22,1,.36,1);
     }
-    .eh-skill-li:hover::after { width:100%; }
-    .eh-skill-li:hover { color:#c5c2ff !important; transition:color .2s; }
+    .skill-group li:hover::before { width: 100%; }
+    .skill-group li:hover { color: #c5c2ff !important; }
 
-    /* Skill card */
-    .eh-skill-card {
+    /* ── Skill card enhanced hover ── */
+    .skill-group {
       transition: transform .3s cubic-bezier(.22,1,.36,1),
                   border-color .3s, box-shadow .3s !important;
     }
-    .eh-skill-card:hover {
-      transform:translateY(-5px) !important;
-      border-color:rgba(123,108,255,.3) !important;
-      box-shadow:0 18px 44px rgba(0,0,0,.28),
-                 0 0 28px rgba(123,108,255,.06) !important;
+    .skill-group:hover {
+      transform: translateY(-6px) !important;
+      border-color: rgba(124,106,255,.35) !important;
+      box-shadow: 0 20px 50px rgba(0,0,0,.3),
+                  0 0 30px rgba(124,106,255,.08) !important;
     }
+
+    /* ── Project card tilt — handled via JS ── */
+    .project-card {
+      will-change: transform;
+    }
+
+    /* ── Cert card glow on hover ── */
+    .cert-card {
+      transition: transform .3s ease, box-shadow .3s, border-color .3s !important;
+    }
+    .cert-card:hover {
+      border-color: rgba(124,106,255,.4) !important;
+      box-shadow: 0 16px 48px rgba(0,0,0,.35),
+                  0 0 24px rgba(124,106,255,.12) !important;
+    }
+
+    /* ── Coursework badge pop ── */
+    .course-badge {
+      transition: transform .25s ease, background .25s, color .25s,
+                  box-shadow .25s !important;
+    }
+    .course-badge:hover {
+      transform: translateY(-3px) scale(1.06) !important;
+      background: rgba(124,106,255,.18) !important;
+      color: #c5c2ff !important;
+      box-shadow: 0 6px 20px rgba(124,106,255,.2) !important;
+    }
+
+    /* ── Nav link hover underline ── */
+    .nav-center a {
+      position: relative;
+    }
+    .nav-center a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 50%; right: 50%;
+      height: 1px;
+      background: rgba(124,106,255,.7);
+      transition: left .3s ease, right .3s ease;
+    }
+    .nav-center a:hover::after { left: 0; right: 0; }
+
+    /* ── Blinking terminal cursor ── */
+    .t-cursor {
+      animation: ehBlink 1.1s step-end infinite;
+      display: inline-block;
+    }
+    @keyframes ehBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ── Detail card hover ── */
+    .detail-card { transition: transform .3s ease, box-shadow .3s !important; }
+    .detail-card:hover { transform: translateY(-5px) !important; }
+    .detail-card i { transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
+    .detail-card:hover i { transform: scale(1.3) rotate(-8deg); }
   `;
-  const s = document.createElement('style');
-  s.textContent = css;
-  document.head.appendChild(s);
 
-  /* ── 2. DEBUG: log what h3s exist ─────────────────── */
-  console.log('[enhancements] loaded. h3s found:',
-    Array.from(document.querySelectorAll('h3')).map(h => h.textContent.trim()));
+  const styleEl = document.createElement('style');
+  styleEl.textContent = css;
+  document.head.appendChild(styleEl);
 
-  /* ── 3. REMOVE MEDIUM ENTRY ────────────────────────── */
-  document.querySelectorAll('h3, strong').forEach(el => {
-    if (!/medium technical author/i.test(el.textContent)) return;
-    // go up to nearest block-level ancestor that is a direct child of the exp area
-    let target = el;
-    while (target.parentElement && target.parentElement.tagName !== 'SECTION'
-      && !target.parentElement.classList.contains('experience-content')
-      && target.parentElement.childElementCount <= 4) {
-      target = target.parentElement;
-    }
-    // collect: the element + previous "Ongoing" sibling + following role/desc
-    const toRemove = new Set([target]);
-    const prev = target.previousElementSibling;
-    if (prev && /ongoing/i.test(prev.textContent)) toRemove.add(prev);
-    let next = target.nextElementSibling;
-    let n = 0;
-    while (next && n < 2 && !/\d{4}/i.test(next.textContent.slice(0, 8))) {
-      toRemove.add(next); next = next.nextElementSibling; n++;
-    }
-    toRemove.forEach(el => { console.log('[enhancements] removing:', el.textContent.trim().slice(0, 40)); el.remove(); });
-  });
+  /* ── 2. SCROLL REVEAL ───────────────────────────────── */
+  const revealTargets = [
+    { sel: '.section-label', baseDelay: 1 },
+    { sel: '.section-content > h2', baseDelay: 1 },
+    { sel: '.project-card', baseDelay: 2 },
+    { sel: '.cert-card', baseDelay: 2 },
+    { sel: '.detail-card', baseDelay: 2 },
+    { sel: '.skill-group', baseDelay: 2 },
+    { sel: '.timeline-item', baseDelay: 2 },
+    { sel: '.contact-inner', baseDelay: 1 },
+    { sel: '.course-badge', baseDelay: 3 },
+    { sel: '.quick-stats', baseDelay: 1 },
+  ];
 
-  /* ── 4. TIMELINE ────────────────────────────────────── */
-  // Strategy: find exp section, collect all experience blocks,
-  // wrap in timeline entries. We detect exp section by its h2 text.
-  let expSection = null;
-  document.querySelectorAll('section').forEach(sec => {
-    if (/ecosystem/i.test(sec.textContent) && /campus tech/i.test(sec.textContent)) {
-      expSection = sec;
-    }
-  });
-
-  if (expSection) {
-    console.log('[enhancements] found exp section');
-
-    // Find all h3s in section
-    const allH3 = Array.from(expSection.querySelectorAll('h3'));
-    console.log('[enhancements] exp h3s:', allH3.map(h => h.textContent.trim()));
-
-    if (allH3.length > 0) {
-      // Find the container that holds the first h3
-      const container = allH3[0].parentElement;
-
-      // Snapshot all direct children of container that come after the h2
-      const h2 = container.querySelector('h2') || expSection.querySelector('h2');
-      let children = Array.from(container.children);
-
-      // Split children into groups, each starting with a date or h3
-      // First pass: flatten into a node list after the h2
-      const afterH2 = [];
-      let pastH2 = !h2; // if no h2 found, include everything
-      children.forEach(child => {
-        if (!pastH2) { if (child === h2 || child.contains(h2)) { pastH2 = true; } return; }
-        afterH2.push(child);
-      });
-
-      // Group: a group starts when we see an h3 (or element just before an h3 that looks like a date)
-      const groups = [];
-      let current = null;
-      afterH2.forEach(el => {
-        const isTitle = el.tagName === 'H3' || el.querySelector('h3');
-        const isDate = !isTitle && /^\s*(\d{4}|ongoing)/i.test(el.textContent.trim());
-        if (isDate) {
-          current = { nodes: [el] };
-          groups.push(current);
-        } else if (isTitle) {
-          if (!current) { current = { nodes: [] }; groups.push(current); }
-          current.nodes.push(el);
-        } else {
-          if (current) current.nodes.push(el);
-        }
-      });
-
-      console.log('[enhancements] groups found:', groups.length);
-
-      if (groups.length > 0) {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'eh-timeline';
-
-        groups.forEach((g, i) => {
-          const entry = document.createElement('div');
-          entry.className = `eh-entry eh-hidden eh-d${Math.min(i + 1, 3)}`;
-          const dot = document.createElement('span');
-          dot.className = 'eh-dot';
-          entry.appendChild(dot);
-          g.nodes.forEach(n => entry.appendChild(n)); // move (not clone)
-          wrapper.appendChild(entry);
-        });
-
-        // Insert timeline after h2 in container
-        if (h2 && h2.parentElement === container) {
-          h2.after(wrapper);
-        } else {
-          container.appendChild(wrapper);
-        }
-      }
-    }
-  } else {
-    console.warn('[enhancements] exp section NOT found');
-  }
-
-  /* ── 5. SKILLS ──────────────────────────────────────── */
-  const skillSec = document.getElementById('skills');
-  if (skillSec) {
-    skillSec.querySelectorAll('li').forEach((li, i) => {
-      li.classList.add('eh-skill-li', 'eh-hidden', `eh-d${(i % 3) + 1}`);
-    });
-    skillSec.querySelectorAll('div').forEach(div => {
-      if (div.querySelector('h4') && div.querySelector('ul')) {
-        div.classList.add('eh-skill-card', 'eh-hidden', 'eh-d1');
+  revealTargets.forEach(({ sel, baseDelay }) => {
+    document.querySelectorAll(sel).forEach((el, i) => {
+      if (!el.classList.contains('eh-hidden')) {
+        el.classList.add('eh-hidden', `eh-d${Math.min(i % 4 + 1, 4)}`);
       }
     });
-  }
+  });
 
-  /* ── 6. SCROLL REVEAL ───────────────────────────────── */
   setTimeout(() => {
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -193,9 +142,76 @@
           obs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
-    document.querySelectorAll('.eh-hidden').forEach(el => obs.observe(el));
-    console.log('[enhancements] reveal observer set up on', document.querySelectorAll('.eh-hidden').length, 'elements');
-  }, 150);
+    }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
 
+    document.querySelectorAll('.eh-hidden').forEach(el => obs.observe(el));
+    console.log('[enhancements v2] reveal observer on', document.querySelectorAll('.eh-hidden').length, 'elements');
+  }, 250);
+
+  /* ── 3. COUNT-UP ANIMATION FOR STATS ───────────────── */
+  function countUp(el, target, suffix, duration) {
+    const startTime = performance.now();
+    const isFloat = String(target).includes('.');
+    function step(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const val = isFloat
+        ? (eased * target).toFixed(1)
+        : Math.round(eased * target);
+      el.textContent = val + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const statsObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      statsObs.unobserve(entry.target);
+      entry.target.querySelectorAll('.stat-num').forEach(el => {
+        const raw = el.textContent.trim();
+        const suffix = raw.replace(/[\d.]/g, '');
+        const num = parseFloat(raw);
+        if (!isNaN(num)) countUp(el, num, suffix, 1400);
+      });
+    });
+  }, { threshold: 0.5 });
+
+  const quickStats = document.querySelector('.quick-stats');
+  if (quickStats) statsObs.observe(quickStats);
+
+  /* ── 4. PROJECT CARD 3D TILT ────────────────────────── */
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(900px) rotateY(${x * 5}deg) rotateX(${-y * 3}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform .4s cubic-bezier(.22,1,.36,1)';
+      card.style.transform = '';
+      setTimeout(() => { card.style.transition = ''; }, 400);
+    });
+  });
+
+  /* ── 5. ACTIVE NAV LINK HIGHLIGHT ──────────────────── */
+  const navLinks = document.querySelectorAll('.nav-center a');
+  const sections = document.querySelectorAll('section[id]');
+
+  const navObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          const matches = link.getAttribute('href') === `#${id}`;
+          link.style.color = matches ? 'var(--text-bright)' : '';
+        });
+      }
+    });
+  }, { threshold: 0.45 });
+
+  sections.forEach(s => navObs.observe(s));
+
+  console.log('[enhancements v2] loaded ✓');
 })();
